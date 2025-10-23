@@ -4,7 +4,6 @@
     int idCategoria;
     string descripcion;
     bool disponible;
-
     int idRestaurante; 
      
  }
