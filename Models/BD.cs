@@ -19,8 +19,8 @@ public static class BD{
         Usuario usuarioMostrar=null;
 
         using(SqlConnection connection = new SqlConnection(conexion)){
-            string query = "select * from Usuario where idUsuario=@pId";
-            usuarioMostrar= connection.QueryFirstOrDefault<Usuario>(query, new {pid=id});
+            string query = "GetUsuario";
+            usuarioMostrar= connection.QueryFirstOrDefault<Usuario>(query, new {pid=id}, CommandType : CommandType.StoreProcedure);
         }
 
         return usuarioMostrar;
@@ -30,8 +30,8 @@ public static class BD{
     {
         using (SqlConnection connection = new SqlConnection(conexion))
         {
-            string query = "insert into Usuario (nombre, apellido, email, contraseña, direccion, telefono) Values (@pnombre, @papellido, @pemail, @pcontraseña, @pdireccion, @ptelefono)";
-            connection.Execute(query, new { pnombre=nombre, papellido=apellido, pemail=email, pcontrasena=contraseña, pdireccion=direccion, ptelefono=telefono});
+            string query = "Registro";
+            connection.Execute(query, new { pnombre=nombre, papellido=apellido, pemail=email, pcontrasena=contraseña, pdireccion=direccion, ptelefono=telefono}, CommandType : CommandType.StoreProcedure);
         }
     }
 
@@ -39,18 +39,40 @@ public static class BD{
         List<Restaurante> LRestaurantes;
        using (SqlConnection connection = new SqlConnection(conexion))
     {
-        string query = "SELECT * FROM Restaurante WHERE idRestaurante = @pidRestaurante";
-        LRestaurantes = connection.Query<Restaurante>(query, new { pidRestaurante = idRestaurante }).ToList();
+        string query = "GetRestaurantes";
+        LRestaurantes = connection.Query<Restaurante>(query, new { pidRestaurante = idRestaurante }, CommandType : CommandType.StoreProcedure).ToList();
     }
     return LRestaurantes;
     }
 
-    public static Plato GetPlatoBusqueda(int idPlato){
+
+    public static List<Plato> GetPlatos(){
+        List<Plato> LPlatos;
+       using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetPlatos";
+        LPlatos = connection.Query<Plato>(query, new { pidPlato = idPlato }, CommandType : CommandType.StoreProcedure).ToList();
+    }
+    return LPlatos;
+    }
+
+     public static List<Categoria> GetCategorias(){
+        List<Categoria> LCategorias;
+       using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetCategorias";
+        LCategorias = connection.Query<Categoria>(query, new { pidCategoria = idCategoria }, CommandType : CommandType.StoreProcedure).ToList();
+    }
+    return LCategorias;
+
+    }
+
+        public static Plato GetPlatoBusqueda(int idPlato){
         Plato platoBuscado=null;
 
         using(SqlConnection connection = new SqlConnection(conexion)){
-            string query = "select * from Plato where idPlato=@pidPlato";
-            platoBuscado= connection.QueryFirstOrDefault<Plato>(query, new {pidPlato=idPlato});
+            string query = "GetPlatoBusqueda";
+            platoBuscado= connection.QueryFirstOrDefault<Plato>(query, new {pidPlato=idPlato}, CommandType : CommandType.StoreProcedure);
         }
 
         return platoBuscado;
@@ -60,29 +82,30 @@ public static class BD{
         Restaurante restauranteBuscado=null;
 
         using(SqlConnection connection = new SqlConnection(conexion)){
-            string query = "select * from Restaurante where idRestaurante=@pidRestaurante";
-            restauranteBuscado= connection.QueryFirstOrDefault<Restaurante>(query, new {pidRestaurante=idRestaurante});
+            string query = "GetRestauranteBusqueda";
+            restauranteBuscado= connection.QueryFirstOrDefault<Restaurante>(query, new {pidRestaurante=idRestaurante}, CommandType : CommandType.StoreProcedure);
         }
 
         return restauranteBuscado;
     }
 
-    public static List<Plato> GetPlatos(){
-        List<Plato> LPlatos;
-       using (SqlConnection connection = new SqlConnection(conexion))
-    {
-        string query = "SELECT * FROM Plato WHERE idPlato = @pidPlato";
-        LPlatos = connection.Query<Plato>(query, new { pidPlato = idPlato }).ToList();
-    }
-    return LPlatos;
+    public static Restaurante GetRestauranteBusqueda(int idRestaurante){
+        Restaurante restauranteBuscado=null;
+
+        using(SqlConnection connection = new SqlConnection(conexion)){
+            string query = "GetRestauranteBusqueda";
+            restauranteBuscado= connection.QueryFirstOrDefault<Restaurante>(query, new {pidRestaurante=idRestaurante}, CommandType : CommandType.StoreProcedure);
+        }
+
+        return restauranteBuscado;
     }
 
-     public static List<Categoria> GetRestricciones(){
+    public static List<Categoria> GetCategorias(){
         List<Categoria> LCategorias;
        using (SqlConnection connection = new SqlConnection(conexion))
     {
-        string query = "SELECT * FROM Categoria WHERE idCategoria = @pidCategoria";
-        LCategorias = connection.Query<Categoria>(query, new { pidCategoria = idCategoria }).ToList();
+        string query = "GetCategorias";
+        LCategorias = connection.Query<Categoria>(query, new { pidCategoria = idCategoria }, CommandType : CommandType.StoreProcedure).ToList();
     }
     return LCategorias;
 
