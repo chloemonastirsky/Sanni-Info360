@@ -1,0 +1,1 @@
+//crear un ojeto que lamecene los 3 nombres ebbdia resto y plato 

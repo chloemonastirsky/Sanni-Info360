@@ -110,4 +110,6 @@ public static class BD{
     return LCategorias;
 
     }
+
+    
 }
