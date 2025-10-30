@@ -72,10 +72,23 @@ public static class BD{
     }
 
     public static List<Plato> GetPlatos(){
-
+        List<Plato> LPlatos;
+       using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "SELECT * FROM Plato WHERE idPlato = @pidPlato";
+        LPlatos = connection.Query<Plato>(query, new { pidPlato = idPlato }).ToList();
+    }
+    return LPlatos;
     }
 
      public static List<Categoria> GetRestricciones(){
+        List<Categoria> LCategorias;
+       using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "SELECT * FROM Categoria WHERE idCategoria = @pidCategoria";
+        LCategorias = connection.Query<Categoria>(query, new { pidCategoria = idCategoria }).ToList();
+    }
+    return LCategorias;
 
     }
 }
