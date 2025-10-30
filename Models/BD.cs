@@ -6,17 +6,13 @@ public static class BD{
     private static string conexion = @"Server=localhost; DataBase=sanni bd; Integrated Security = True; TrustServerCertificate=True";
 
     public static int Login(string email, string contrasena){
-        int encontrado=0;
+        int idUserLogged=null;
         using(SqlConnection connection = new SqlConnection(conexion)){
             string query = "select Usuario.idUsuario from Usuario where email=@pemail and contrasena = @pcontrasena";
-            encontrado= connection.QueryFirstOrDefault<int>(query, new {pemail = email, pcontraseña = contrasena});
+            idUserLogged= connection.QueryFirstOrDefault<int>(query, new {pemail = email, pcontraseña = contrasena});
         }
 
-        if(encontrado==0){
-            encontrado=-1;
-        }
-
-        return encontrado;
+        return idUserLogged;
     }
 
      public static Usuario GetUsuario(int id){
