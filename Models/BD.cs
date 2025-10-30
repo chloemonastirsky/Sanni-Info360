@@ -107,10 +107,20 @@ public static class BD{
        using (SqlConnection connection = new SqlConnection(conexion))
     {
         string query = "GetFavoritos";
-        favoritos = connection.Query<Categoria>(query, new { pidUsuario = idUsuario }, CommandType : CommandType.StoreProcedure);
+        favoritos = connection.Query<GetFavoritos>(query, new { pidUsuario = idUsuario }, CommandType : CommandType.StoreProcedure);
     }
     return favoritos;
 
+    }
+
+
+    public static void AgregarFavorito(int idUsuario, int idBebida, int idPlato, int idRestaurante){
+    
+        using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "AgregarFavoritos";
+        connection.Execute(query, new {	insert into Favoritos (idPlato, idBebida, idRestaurante) values (@pidPlato, @pidBebida, @pidRestaurante);}, CommandType : CommandType.StoreProcedure);
+    }
     }
 
     
