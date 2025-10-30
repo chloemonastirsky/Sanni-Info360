@@ -1,5 +1,5 @@
  public class Categoria{
     
-    int idCategoria; 
-    string nombre;
+    public int idCategoria{get; private set;}
+    public string nombre{get; private set;}
  }

@@ -1,7 +1,9 @@
 public class Pedido{
-    DateTime fecha;
-    int total;
-    string metodoPago;
-    string direccionEntrega;
+    public DateTime fecha{get; private set;}
+    public int total{get; private set;}
+    public string metodoPago{get; private set;}
+    public string direccionEntrega{get; private set;}
 }
+
+
 

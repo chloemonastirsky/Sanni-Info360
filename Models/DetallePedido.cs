@@ -1,9 +1,9 @@
 public class DetallePedido{
-    int cantidad;
-    int subtotal;
+    public int cantidad{get; private set;}
+    public int subtotal{get; private set;}
 
-    int idPedido;
+    public int idPedido{get; private set;}
 
-    int idPlato;
+    public int idPlato{get; private set;}
 
 }

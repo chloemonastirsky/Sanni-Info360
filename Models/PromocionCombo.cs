@@ -1,7 +1,7 @@
 public class PromocionCombo{
-    int idPromoCombo;
-    int idPromocion;
-    int idPlato;
-    int idBebida ;
+    public int idPromoCombo{get; private set;}
+    public int idPromocion{get; private set;}
+    public int idPlato{get; private set;}
+    public int idBebida {get; private set;}
 
 }

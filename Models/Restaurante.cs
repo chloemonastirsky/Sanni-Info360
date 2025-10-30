@@ -1,11 +1,10 @@
 public class Restaurante{
-    int idRestaurante;
-    string nombre;
-    string direccion;
-    string tipoDeComida;
-    int horario;
-    int telefono;
-    int promedioRating;
-
-
+    public int idRestaurante{get; private set;}
+    public string nombre{get; private set;}
+    public string direccion{get; private set;}
+    public string tipoDeComida{get; private set;}
+    public int horario{get; private set;}
+    public int telefono{get; private set;}
+    public int promedioRating{get; private set;}
 }
+
