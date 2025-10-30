@@ -56,3 +56,4 @@ C:\Users\49552251\Sanni-Info360\obj\Debug\net8.0\refint\Sanni.dll
 C:\Users\49552251\Sanni-Info360\obj\Debug\net8.0\Sanni.pdb
 C:\Users\49552251\Sanni-Info360\obj\Debug\net8.0\Sanni.genruntimeconfig.cache
 C:\Users\49552251\Sanni-Info360\obj\Debug\net8.0\ref\Sanni.dll
+C:\Users\49552251\Sanni-Info360\obj\Debug\net8.0\Sanni.csproj.AssemblyReference.cache

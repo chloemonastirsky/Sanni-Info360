@@ -15,7 +15,7 @@ public static class BD{
         return idUserLogged;
     }
 
-     public static Usuario GetUsuario(int id){
+     public static Usuarios GetUsuario(int id){
         Usuario usuarioMostrar=null;
 
         using(SqlConnection connection = new SqlConnection(conexion)){
@@ -35,7 +35,7 @@ public static class BD{
         }
     }
 
-    public static List<Restaurante> GetRestaurantes(int idRestaurante){
+    public static List<Restaurantes> GetRestaurantes(int idRestaurante){
         List<Restaurante> LRestaurantes;
        using (SqlConnection connection = new SqlConnection(conexion))
     {
@@ -46,7 +46,7 @@ public static class BD{
     }
 
 
-    public static List<Plato> GetPlatos(){
+    public static List<Platos> GetPlatos(){
         List<Plato> LPlatos;
        using (SqlConnection connection = new SqlConnection(conexion))
     {
@@ -56,7 +56,7 @@ public static class BD{
     return LPlatos;
     }
 
-     public static List<Categoria> GetCategorias(){
+     public static List<Categorias> GetCategorias(){
         List<Categoria> LCategorias;
        using (SqlConnection connection = new SqlConnection(conexion))
     {
@@ -67,7 +67,7 @@ public static class BD{
 
     }
 
-        public static Plato GetPlatoBusqueda(int idPlato){
+        public static Platos GetPlatoBusqueda(int idPlato){
         Plato platoBuscado=null;
 
         using(SqlConnection connection = new SqlConnection(conexion)){
@@ -78,7 +78,7 @@ public static class BD{
         return platoBuscado;
     }
 
-    public static Restaurante GetRestauranteBusqueda(int idRestaurante){
+    public static Restaurantes GetRestauranteBusqueda(int idRestaurante){
         Restaurante restauranteBuscado=null;
 
         using(SqlConnection connection = new SqlConnection(conexion)){
@@ -89,7 +89,7 @@ public static class BD{
         return restauranteBuscado;
     }
 
-    public static Restaurante GetRestauranteBusqueda(int idRestaurante){
+    public static Restaurantes GetRestauranteBusqueda(int idRestaurante){
         Restaurante restauranteBuscado=null;
 
         using(SqlConnection connection = new SqlConnection(conexion)){
@@ -100,14 +100,16 @@ public static class BD{
         return restauranteBuscado;
     }
 
-    public static List<Categoria> GetCategorias(){
-        List<Categoria> LCategorias;
+
+    public static GetFavoritos GetFavoritos(int idUsuario){
+
+        GetFavoritos favoritos;
        using (SqlConnection connection = new SqlConnection(conexion))
     {
-        string query = "GetCategorias";
-        LCategorias = connection.Query<Categoria>(query, new { pidCategoria = idCategoria }, CommandType : CommandType.StoreProcedure).ToList();
+        string query = "GetFavoritos";
+        favoritos = connection.Query<Categoria>(query, new { pidUsuario = idUsuario }, CommandType : CommandType.StoreProcedure);
     }
-    return LCategorias;
+    return favoritos;
 
     }
 
