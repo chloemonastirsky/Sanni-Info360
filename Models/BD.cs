@@ -6,10 +6,10 @@ public static class BD{
     private static string conexion = @"Server=localhost; DataBase=sanni bd; Integrated Security = True; TrustServerCertificate=True";
 
     public static int Login(string email, string contraseña){
-        int idUserLogged=null;
+        int idUserLogged=-1;
         using(SqlConnection connection = new SqlConnection(conexion)){
-            string query = "select Usuario.idUsuario from Usuario where email=@pemail and contraseña = @pcontraseña";
-            idUserLogged= connection.QueryFirstOrDefault<int>(query, new {pemail = email, pcontraseña = contraseña});
+            string query = "LoginUsuario";
+            idUserLogged= connection.QueryFirstOrDefault<int>(query, new {pemail = email, pcontraseña = contraseña}, CommandType : CommandType.StoreProcedure);
         }
 
         return idUserLogged;
