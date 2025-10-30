@@ -1,4 +1,4 @@
-public class Usuario{
+public class Usuarios{
     int idUsuario;
     string nombre;
     string apellido;

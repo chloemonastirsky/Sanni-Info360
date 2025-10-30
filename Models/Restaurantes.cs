@@ -1,4 +1,4 @@
-public class Restaurante{
+public class Restaurantes{
     public int idRestaurante{get; private set;}
     public string nombre{get; private set;}
     public string direccion{get; private set;}

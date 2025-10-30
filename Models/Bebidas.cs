@@ -1,4 +1,4 @@
- public class Bebida{
+ public class Bebidas{
     public int idBebida {get; private set;} 
     public string nombre{get; private set;}
     public int idCategoria{get; private set;}

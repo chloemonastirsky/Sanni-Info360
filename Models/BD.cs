@@ -5,11 +5,11 @@ using Dapper;
 public static class BD{
     private static string conexion = @"Server=localhost; DataBase=sanni bd; Integrated Security = True; TrustServerCertificate=True";
 
-    public static int Login(string email, string contrasena){
+    public static int Login(string email, string contraseña){
         int idUserLogged=null;
         using(SqlConnection connection = new SqlConnection(conexion)){
-            string query = "select Usuario.idUsuario from Usuario where email=@pemail and contrasena = @pcontrasena";
-            idUserLogged= connection.QueryFirstOrDefault<int>(query, new {pemail = email, pcontraseña = contrasena});
+            string query = "select Usuario.idUsuario from Usuario where email=@pemail and contraseña = @pcontraseña";
+            idUserLogged= connection.QueryFirstOrDefault<int>(query, new {pemail = email, pcontraseña = contraseña});
         }
 
         return idUserLogged;
@@ -26,12 +26,12 @@ public static class BD{
         return usuarioMostrar;
     }
 
-     public static void Registro(string nombre, string apellido, string email, string contrasena, string direccion , int telefono)
+     public static void Registro(string nombre, string apellido, string email, string contraseña, string direccion , int telefono)
     {
         using (SqlConnection connection = new SqlConnection(conexion))
         {
-            string query = "insert into Usuario (nombre, apellido, email, contrasena, direccion, telefono) Values (@pnombre, @papellido, @pemail, @pcontrasena, @pdireccion, @ptelefono)";
-            connection.Execute(query, new { pnombre=nombre, papellido=apellido, pemail=email, pcontrasena=contrasena, pdireccion=direccion, ptelefono=telefono});
+            string query = "insert into Usuario (nombre, apellido, email, contraseña, direccion, telefono) Values (@pnombre, @papellido, @pemail, @pcontraseña, @pdireccion, @ptelefono)";
+            connection.Execute(query, new { pnombre=nombre, papellido=apellido, pemail=email, pcontrasena=contraseña, pdireccion=direccion, ptelefono=telefono});
         }
     }
 

@@ -1,4 +1,4 @@
-public class Plato{
+public class Platos{
     public int idPlato{get; private set;}
     public string nombre{get; private set;}
     public string descripcion{get; private set;}
