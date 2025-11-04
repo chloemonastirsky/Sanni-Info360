@@ -35,7 +35,7 @@ public class AccountController : Controller
         return View("registro");
     }
 
-     public IActionResult RegistroGuardar(string nombre, string apellido, string email, string contraseña, string direccion , int telefono)
+     public IActionResult RegistroGuardar(int idUsuario, string nombre, string apellido, string email, string contraseña, string direccion , int telefono)
     {
         BD.Registro(nombre, apellido, email, contraseña, direccion, telefono);
         Usuario userRegistrado = BD.GetUsuario(idUsuario);
@@ -44,7 +44,10 @@ public class AccountController : Controller
     }
 
 
-
+    public IActionResult CerrarSesion()
+{
+    return RedirectToAction("Login", "account");
+}
 
     public IActionResult CambiarContrasena(string email)
     {

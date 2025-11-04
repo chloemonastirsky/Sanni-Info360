@@ -4,7 +4,7 @@ public class Usuario{
     public string nombre;
     public string apellido;
     public string email;
-    public string contrasena;
+    public string contraseña;
     public int telefono;
     public DateTime fechaRegistro;
      
