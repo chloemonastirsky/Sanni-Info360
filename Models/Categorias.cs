@@ -1,3 +1,4 @@
+ namespace Sanni.Models;
  public class Categoria{
     
     public int idCategoria{get; private set;}

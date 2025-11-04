@@ -1,4 +1,4 @@
- public class Promociones{
+ public class Promocion{
     public int idPromo{get; private set;}
     public string nombre{get; private set;}
     public int descuento{get; private set;}

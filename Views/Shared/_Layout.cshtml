@@ -8,34 +8,33 @@
 <body>
 
   <header>
-    <nav class="navbar navbar-expand-lg" style="background-color: #519e48;">
-      <div class="container-fluid">
-        <!-- BOTÓN HAMBURGUESA -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <!-- CAMBIA FOTO  -->
+                    <img class="menu" src="foticos/logo.png">
 
-        <!-- LOGO -->
-        <a class="navbar-brand" href="#">
-          <img src="logo.png" alt="Logo" width="80">
-        </a>
-
-        <!-- ICONOS -->
-        <div class="d-flex align-items-center">
-          <img src="lupa.png" alt="Buscar" width="25" class="me-3">
-          <img src="perfil.png" alt="Perfil" width="25">
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Inicio</a></li>
+                  <li><a class="dropdown-item" href="#">Favoritos</a></li>
+                  <li><a class="dropdown-item" href="#">Notificaciones</a></li>
+                  <li><a class="dropdown-item" href="#">Chat </a></li>
+                  <li><a class="dropdown-item" href="#">Restaurantes</a></li>
+                  <li><a class="dropdown-item" href="#">Restricciones</a></li>
+                  <li><a class="dropdown-item" href="#">Promociones</a></li>
+                </ul>
+              </li>
+              <!-- CAMBIA FOTO  -->
+          <a class="boton landing" href="#"><img class="logo" src="foticos/logo.png"></a>     
+          
+          <a class="lupa" href="#"><img class="logo" src="foticos/logo.png"></a>
+          <a class="usuario" href="#"><img class="logo" src="foticos/logo.png"></a>
+              
+          </div>
         </div>
-
-        <!-- MENU QUE SE DESPLIEGA -->
-        <div class="collapse navbar-collapse" id="menuNavbar">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link text-white" href="#">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#">Productos</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#">Contacto</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      </nav>
   </header>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
