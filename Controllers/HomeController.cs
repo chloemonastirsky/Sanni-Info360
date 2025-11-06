@@ -18,16 +18,18 @@ public class HomeController : Controller
         return View("Index");
     }
 
-    public IActionResult verRestricciones()
-    {
-        
-    }
+    // public IActionResult verRestricciones()
+    // {
 
-    public IActionResult verRestaurantes()
-    {
-     //  ViewBag.catalogoRestaurantes=BD.GetRestaurantes(int idRestaurante);
-       ViewBag.Puntuacion=Restaurante.promedioRating; 
-    }
+    //     return();
+        
+    // }
+
+    // public IActionResult verRestaurantes()
+    // {
+    //  //  ViewBag.catalogoRestaurantes=BD.GetRestaurantes(int idRestaurante);
+    //    ViewBag.Puntuacion=Restaurante.promedioRating; 
+    // }
 
     
 

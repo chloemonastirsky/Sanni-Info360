@@ -4,38 +4,77 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
 
   <header>
-   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <!-- CAMBIA FOTO  -->
-                    <img class="menu" src="foticos/logo.png">
-
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Inicio</a></li>
-                  <li><a class="dropdown-item" href="#">Favoritos</a></li>
-                  <li><a class="dropdown-item" href="#">Notificaciones</a></li>
-                  <li><a class="dropdown-item" href="#">Chat </a></li>
-                  <li><a class="dropdown-item" href="#">Restaurantes</a></li>
-                  <li><a class="dropdown-item" href="#">Restricciones</a></li>
-                  <li><a class="dropdown-item" href="#">Promociones</a></li>
-                </ul>
-              </li>
-              <!-- CAMBIA FOTO  -->
-          <a class="boton landing" href="#"><img class="logo" src="foticos/logo.png"></a>     
-          
-          <a class="lupa" href="#"><img class="logo" src="foticos/logo.png"></a>
-          <a class="usuario" href="#"><img class="logo" src="foticos/logo.png"></a>
-              
+      
+          <!-- IZQUIERDA -->
+          <div class="left-section">
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="menu" src="imagenes/iconoMenu.png" alt="Menú">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="menuDropdown">
+                <li><a class="dropdown-item" href="#">Inicio</a></li>
+                
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Favoritos</a></li>
+                <li><a class="dropdown-item" href="#">Restaurantes</a></li>
+                <li><a class="dropdown-item" href="#">Restricciones</a></li>
+                <li><a class="dropdown-item" href="#">Notificaciones</a></li>
+                <li><a class="dropdown-item" href="#">Promociones</a></li>
+                <li><a class="dropdown-item" href="#">Chat</a></li>
+              </ul>
+            </div>
+            <img class="logo" src="imagenes/LOGO TERMINADO SANNI LISTO.png" alt="Logo">
           </div>
+      
+          <!-- DERECHA -->
+          <div class="right-section">
+            <img class="lupa" href="#" src="imagenes/iconoLupa.png" alt="Buscar">
+            
+            <img class="usuario" href="#" src="imagenes/iconoUsuario.webp" alt="Usuario">
+          </div>
+      
         </div>
       </nav>
-  </header>
+      
+      
+          
+    </header>
+    
+    
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+ 
+      
+      <footer>
+        <div class="footer-container">
+          <div class="footer-logo">
+            <img class="logo-footer" src="imagenes/logo simplificado editado.png" alt="Logo">
+          </div>
+      
+
+
+          <div class="redes-numero">
+          <div class="footer-redes">
+            <img class="ig" src="imagenes/ig.png" alt="Instagram">
+            <img class="x" src="imagenes/x.png" alt="X">
+            <img class="tt" src="imagenes/tt.png" alt="TikTok">
+          </div>
+      
+          <div class="footer-numero">
+            <img class="telefono" src="imagenes/telefono.png" alt="Teléfono">
+            <h6>+54 9 11 6289-1434</h6>
+          </div>
+        </div>
+      </div>
+      </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>

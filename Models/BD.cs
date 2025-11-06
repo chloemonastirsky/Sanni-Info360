@@ -82,16 +82,16 @@ public class BD{
         return restauranteBuscado;
     }
 
-    public static GetFavoritos GetFavoritos(int idUsuario)
-    {
-        GetFavoritos favoritos;
-       using (SqlConnection connection = new SqlConnection(conexion))
-        {
-            string query = "GetFavoritos";
-            favoritos = connection.Query<GetFavoritos>(query, new { pidUsuario = idUsuario }, commandType : CommandType.StoredProcedure);
-        }
-        return favoritos;
-    }
+    // public static GetFavoritos GetFavoritos(int idUsuario)
+    // {
+    //     GetFavoritos favoritos;
+    //    using (SqlConnection connection = new SqlConnection(conexion))
+    //     {
+    //         string query = "GetFavoritos";
+    //         favoritos = connection.Query<GetFavoritos>(query, new { pidUsuario = idUsuario }, commandType : CommandType.StoredProcedure);
+    //     }
+    //     return favoritos;
+    // }
 
     
 

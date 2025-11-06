@@ -1,46 +1,327 @@
-header {
+header nav div, header nav{
+  background-color: #4A963F;
+  height: 70px;
+}
+
+
+/* --- ESTILO GENERAL --- */
+nav.navbar .container-fluid {
   display: flex;
   align-items: center;
-  background: #4A963F;
-  padding: 10px 30px;
-  position: relative;
+  justify-content: space-between;
 }
 
 
-.logo{
-  width: 80px;
-  height:auto;
-  margin-left: 1%;
-}
-
-.menu {
-  background-color: transparent; 
-  border: none;                 
-  font-size: 24px; 
-} 
-
-.menu:hover {
-  color: #c8f7c5;   
-  transform: scale(1.1);
-}
-
-.iconos{
-  display: flex; 
-  gap: 20px; 
+/* Contenedor izquierdo: menú + logo */
+.left-section {
+  display: flex;
   align-items: center;
+  gap: 10px;
+  margin-left:25px;
 }
 
-.perfil{
+
+/* Contenedor derecho: íconos */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right:25px;
+}
+
+
+/* Íconos y logo en escritorio */
+.menu, .lupa, .usuario {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+
+.menu{
+margin-top: 5px;
+}
+
+
+.usuario{
+  width: 100%;
+}
+
+
+.logo {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* Quitar el triángulo de bootstrap del dropdown */
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+
+footer {
+  background-color: #4A963F;
+  padding: 20px 0;
+  /* display: flex; */
+  /* justify-content: center; */
+  margin-top:20px;
+  height: 300px;
+}
+
+
+.footer-container {
+  display: flex;
+  /* flex-direction: column; por defecto: mobile */
+  /* align-items: right; */
+  text-align: left;
+  gap:5px;
+  /* width: 90%; */
+  margin-left: 32%;
+  margin-top: 25px;
+}
+
+
+/* Logo */
+.logo-footer {
+  width: 250px;
+  height: auto;
+}
+
+
+/* Íconos de redes */
+.footer-redes {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+
+.ig, .tt {
+  width: 45px;
+  height: 45px;
+  /* cursor: pointer; */
+}
+
+
+.x {
+  width: 70px;
+  height: 50px;
+ 
+}
+
+
+/* Teléfono */
+.footer-numero {
+  display: flex;
+  /* align-items: right; */
+  /* justify-content: right; */
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
+.footer-numero img {
   width: 30px;
-  height:auto;
-}
-
-.lupa{
-  width: 30px;
-  height:auto;
+  height: 30px;
+ 
 }
 
 
-.icon-menu {
-  font-weight: bold;
+.footer-numero h6 {
+  font-size: 25px;
+  color: white;
+  margin: 0;
+  font-weight: 500;
 }
+
+
+.redes-numero{
+ margin-left: 180px;
+  margin-top:35px;
+  /* margin-left: 0 !important; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- MEDIA QUERY (MÓVIL) --- */
+@media (max-width: 600px) {
+
+
+header nav div, header nav{
+  background-color: #4A963F;
+}
+
+
+/* --- ESTILO GENERAL --- */
+nav.navbar .container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Contenedor izquierdo: menú + logo */
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left:1px;
+}
+
+
+/* Contenedor derecho: íconos */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-right:3px;
+}
+
+
+/* Íconos y logo en escritorio */
+.menu, .lupa,  .usuario {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+
+.usuario{
+  width: 100%;
+}
+
+
+.logo {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* Quitar el triángulo de bootstrap del dropdown */
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+
+footer {
+  background-color: #4A963F;
+  padding: 20px 0;
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+
+.footer-container {
+  
+  display: grid;
+  grid-template-columns: 1fr;
+justify-items: center;
+/* text-align: center; */
+margin: auto;
+  /* flex-direction: column; por defecto: mobile */
+  /* align-items: right; */
+  text-align: center;
+  /* gap:2%; */
+  /* width: 90%; */
+  /* margin-left: 40px; */
+}
+
+
+/* Logo */
+.logo-footer {
+  width: 120px;
+  height: auto;
+}
+
+
+/* Íconos de redes */
+.footer-redes {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+
+.ig, .tt {
+  width: 35px;
+  height: 35px;
+  /* cursor: pointer; */
+}
+
+
+.x {
+  width: 50px;
+  height: 35px;
+ 
+}
+
+
+/* Teléfono */
+.footer-numero {
+  display: flex;
+  /* align-items: right; */
+  /* justify-content: right; */
+  gap: 0px;
+  margin-top: 10px;
+  justify-content: center;
+align-items: center;
+text-align: center;
+
+
+ 
+}
+
+
+.footer-numero img {
+  width: 20px;
+  height: 20px;
+ 
+}
+
+
+.footer-numero h6 {
+  font-size: 15px;
+  color: white;
+  margin: 0;
+  font-weight: 500;
+}
+
+
+.redes-numero{
+ /* margin-left: 20px; */
+  /* margin-top:15px; */
+  margin-top: 10px;
+display: grid;
+gap: 8px;
+justify-items: center;
+/* margin-right:120px; */
+margin-left: 0 !important;
+}
+}
+
+
+
+
+
+
+
+
+
+
