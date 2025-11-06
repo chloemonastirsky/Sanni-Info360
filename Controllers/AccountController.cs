@@ -14,7 +14,7 @@ public class AccountController : Controller
     public IActionResult Login()
     {
         
-        return View("iniciarSesion");
+        return View("iniciarSesion", "Account");
     }
 
     public IActionResult LoginGuardar(string email, string contraseña)
@@ -32,7 +32,7 @@ public class AccountController : Controller
      public IActionResult Registro()
     {
         
-        return View("registro");
+        return View("registro", "Account");
     }
 
      public IActionResult RegistroGuardar(int idUsuario, string nombre, string apellido, string email, string contraseña, string direccion , int telefono)
@@ -46,7 +46,7 @@ public class AccountController : Controller
 
     public IActionResult CerrarSesion()
 {
-    return RedirectToAction("Login", "account");
+    return RedirectToAction("Index", "Home");
 }
 
     public IActionResult CambiarContrasena(string email)
