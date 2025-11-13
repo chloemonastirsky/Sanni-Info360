@@ -15,23 +15,46 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View("chatbot", "Home");
+        return View("Index", "Home");
     }
 
-    // public IActionResult verRestricciones()
-    // {
+    public IActionResult verRestricciones()
+    {
+        List<Categorias> LCategorias = BD.GetCategorias();
+        ViewBag.Restricciones=LCategorias;
 
-    //     return();
+        return View("restricciones", "Home");
+    }
+
+     public IActionResult verRestaurantes()
+     {
+        List<Restaurantes> LRestaurantes = BD.GetRestaurantes();
+        ViewBag.catalogoRestaurantes=BD.GetRestaurantes();
         
-    // }
-
-    // public IActionResult verRestaurantes()
-    // {
-    //  //  ViewBag.catalogoRestaurantes=BD.GetRestaurantes(int idRestaurante);
-    //    ViewBag.Puntuacion=Restaurante.promedioRating; 
-    // }
-
+        return View("restaurantes", "Home");
+     }
     
+    public IActionResult verRestaurante(int idRestaurante)
+     {
+        Restaurantes restaurante = BD.GetRestauranteBusqueda(idRestaurante);
+        ViewBag.Restaurante=restaurante;
+        
+        return View("restaurantes", "Home");
+     }
 
-    
+     public IActionResult verPlato(int idPlato)
+     {
+        Platos plato = BD.GetPlatoeBusqueda(idPlato);
+        ViewBag.Plato=plato;
+        
+        return View("plato", "Home");
+     }
+
+      public IActionResult verPlato(int idPlato)
+     {
+        Platos plato = BD.GetPlatoeBusqueda(idPlato);
+        ViewBag.Plato=plato;
+        
+        return View("plato", "Home");
+     }
 }

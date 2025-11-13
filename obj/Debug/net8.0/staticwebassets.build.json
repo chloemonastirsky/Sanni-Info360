@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fYqOTrJNqDjjcow+FyF0nO1hiNn6bKd/OjD6FHrjH48=",
+  "Hash": "Kh8yFfGSz8p6UBIKnYbabz9c9AkwYBkkZ9R6NhDTCLs=",
   "Source": "Sanni",
   "BasePath": "_content/Sanni",
   "Mode": "Default",
@@ -321,12 +321,12 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\x.png"
     },
     {
-      "Identity": "C:\\Users\\49194424\\Sanni-Info360\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\49194424\\Sanni-Info360\\wwwroot\\js\\script.js",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\49194424\\Sanni-Info360\\wwwroot\\",
       "BasePath": "_content/Sanni",
-      "RelativePath": "js/site.js",
+      "RelativePath": "js/script.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -337,7 +337,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
+      "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
       "Identity": "C:\\Users\\49194424\\Sanni-Info360\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",

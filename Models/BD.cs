@@ -32,12 +32,12 @@ public class BD{
         }
     }
 
-    public static List<Restaurante> GetRestaurantes(int idRestaurante){
+    public static List<Restaurante> GetRestaurantes(){
         List<Restaurante> LRestaurantes;
        using (SqlConnection connection = new SqlConnection(conexion))
     {
         string query = "GetRestaurantes";
-        LRestaurantes = connection.Query<Restaurante>(query, new { pidRestaurante = idRestaurante }, commandType : CommandType.StoredProcedure).ToList();
+        LRestaurantes = connection.Query<Restaurante>(query, new {  }, commandType : CommandType.StoredProcedure).ToList();
     }
     return LRestaurantes;
     }
@@ -52,12 +52,12 @@ public class BD{
     return LPlatos;
     }
 
-     public static List<Categoria> GetCategorias(int idCategoria){
+     public static List<Categoria> GetCategorias(){
         List<Categoria> LCategorias;
        using (SqlConnection connection = new SqlConnection(conexion))
     {
         string query = "GetCategorias";
-        LCategorias = connection.Query<Categoria>(query, new { pidCategoria = idCategoria }, commandType : CommandType.StoredProcedure).ToList();
+        LCategorias = connection.Query<Categoria>(query, new {}, commandType : CommandType.StoredProcedure).ToList();
     }
     return LCategorias;
 
@@ -74,25 +74,43 @@ public class BD{
 
     public static Restaurante GetRestauranteBusqueda(int idRestaurante){
         Restaurante restauranteBuscado=null;
-
         using(SqlConnection connection = new SqlConnection(conexion)){
             string query = "GetRestauranteBusqueda";
             restauranteBuscado= connection.QueryFirstOrDefault<Restaurante>(query, new {pidRestaurante=idRestaurante}, commandType : CommandType.StoredProcedure);
         }
         return restauranteBuscado;
     }
-
-    // public static GetFavoritos GetFavoritos(int idUsuario)
-    // {
-    //     GetFavoritos favoritos;
-    //    using (SqlConnection connection = new SqlConnection(conexion))
-    //     {
-    //         string query = "GetFavoritos";
-    //         favoritos = connection.Query<GetFavoritos>(query, new { pidUsuario = idUsuario }, commandType : CommandType.StoredProcedure);
-    //     }
-    //     return favoritos;
-    // }
-
     
+
+    public static List<NotificacionesUsuario> GetNotificacionesUsuario(int idUsuario)
+{
+    List<NotificacionesUsuario> LNotificaciones;
+    using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetNotificacionesUsuario";
+        LNotificaciones = connection.Query<NotificacionesUsuario>(
+            query, 
+            new { pidUsuario = idUsuario }, 
+            commandType: CommandType.StoredProcedure
+        ).ToList();
+    }
+    return LNotificaciones;
+}
+
+public static List<FavAgregados> GetFavoritos(int idUsuario){
+    
+    List<FavAgregados> LFavs;
+    using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetFavoritos";
+        LFavs = connection.Query<FavAgregados>(
+            query, 
+            new { pidUsuario = idUsuario }, 
+            commandType: CommandType.StoredProcedure
+        ).ToList();
+    }
+
+    return LFavs;
+}
 
 }

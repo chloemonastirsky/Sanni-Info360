@@ -26,7 +26,7 @@ public class AccountController : Controller
            HttpContext.Session.SetString("IdUsuario", idUser.ToString()); 
         }
         
-        return RedirectToAction("");
+        return RedirectToAction("Index", "Home");
     }
 
      public IActionResult Registro()
@@ -46,7 +46,7 @@ public class AccountController : Controller
 
     public IActionResult CerrarSesion()
 {
-    return RedirectToAction("Index", "Home");
+    return RedirectToAction("iniciarSesion", "Account");
 }
 
     public IActionResult CambiarContrasena(string email)

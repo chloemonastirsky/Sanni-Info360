@@ -16,18 +16,18 @@
           <div class="left-section">
             <div class="dropdown">
               <button class="btn dropdown-toggle" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="menu" src="imagenes/iconoMenu.png" alt="Menú">
+               <img class="menu" src="imagenes/iconoMenu.png" alt="Menú">
               </button>
               <ul class="dropdown-menu" aria-labelledby="menuDropdown">
                 <li><a class="dropdown-item" href="#">Inicio</a></li>
                 
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Favoritos</a></li>
-                <li><a class="dropdown-item" href="#">Restaurantes</a></li>
-                <li><a class="dropdown-item" href="#">Restricciones</a></li>
-                <li><a class="dropdown-item" href="#">Notificaciones</a></li>
-                <li><a class="dropdown-item" href="#">Promociones</a></li>
-                <li><a class="dropdown-item" href="#">Chat</a></li>
+                <li><a class="dropdown-item" href='Url.Action("favoritos","Home")'>Favoritos</a></li>
+                <li><a class="dropdown-item" href='Url.Action("restaurantes","Home")'>Restaurantes</a></li>
+                <li><a class="dropdown-item" href='Url.Action("restricciones","Home")'>Restricciones</a></li>
+                <li><a class="dropdown-item" href='Url.Action("notificaciones","Home")'>Notificaciones</a></li>
+                <li><a class="dropdown-item" href='Url.Action("promociones","Home")'>Promociones</a></li>
+                <li><a class="dropdown-item" href='Url.Action("chatbot","Home")'>Chat</a></li>
               </ul>
             </div>
             <img class="logo" src="imagenes/LOGO TERMINADO SANNI LISTO.png" alt="Logo">
@@ -78,4 +78,16 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
+<button id="openModalBtn">Abrir Modal</button>
+
+  <div id="overlay" class="overlay">
+    <div id="modal" class="modal">
+      <span id="closeBtn" class="close">&times;</span>
+      <h2>Contenido del Modal</h2>
+      <p>Aquí va el contenido del modal que se despliega desde la izquierda.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </html>

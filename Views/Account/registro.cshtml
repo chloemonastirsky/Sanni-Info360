@@ -2,20 +2,30 @@
 
 
 <div class="formulario">
-    <form action='Url.Action("Login", "Account")' method="post">
-        <h6 class="textoInicioSesionRegistro">Mail</h6>
+    <form action='Url.Action("RegistroGuardar", "Account")' method="post">
+        <h6 class="textoInicioSesionRegistro">Nombre</h6>
+        <input type="text" name="nombre" placeholder="Nombre">
+        <h6 class="textoInicioSesionRegistro">Apellido</h6>        
+        <input type="text" name="apellido" placeholder="Apellido">
+        <h6 class="textoInicioSesionRegistro">Apellido</h6>        
         <input type="email" name="email" placeholder="Correo Electronico">
-        <h6 class="textoInicioSesionRegistro">Contraseña</h6>
+        <h6 class="textoInicioSesionRegistro">Contraseña</h6>        
         <input type="password" name="contrasena" placeholder="Contraseña">
-        <a href='Url.Action("CambiarContrasena", "Account")'>¿Olvidaste tu contraseña?</a>
-        <h6>@ViewBag.MensajeError </h6>
-        <input type="submit" value="Iniciar Sesion">
+        <h6 class="textoInicioSesionRegistro">Fecha de Nacimiento</h6>        
+        <input type="date" name="fechaNacimiento">
+        <h6 class="textoInicioSesionRegistro">País</h6>        
+        <select name="pais">
+            <option>Argentina</option> 
+            <option>Brasil</option> 
+            <option>Chile</option> 
+            <option>Paraguay</option> 
+            <option>Uruguay</option> 
+        </select>
+
+
+        <input type="submit" value="Registrarse">
     </form>
 </div>
-
-
-<h6>¿Ya tienes cuenta?</h6>
-<a href='Url.Action("Login","Account")'><button>Iniciar Sesion</button></a>
 
 
 
