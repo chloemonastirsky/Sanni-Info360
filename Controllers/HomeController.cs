@@ -15,7 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View("plato", "Home");
+        return View("chatbot", "Home");
     }
 
     // public IActionResult verRestricciones()
