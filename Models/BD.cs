@@ -52,6 +52,26 @@ public class BD{
     return LPlatos;
     }
 
+    public static List<Plato> GetPlatosRestaurante(int idRestaurante){
+        List<Plato> LPlatos;
+       using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetPlatosRestaurante";
+        LPlatos = connection.Query<Plato>(query, new { pidRestaurante = idRestaurante }, commandType : CommandType.StoredProcedure).ToList();
+    }
+    return LPlatos;
+    }
+
+    public static List<Plato> GetBebidasRestaurante(int idRestaurante){
+        List<Bebida> LBebidas;
+       using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetBebidasRestaurante";
+        LBebidas = connection.Query<Plato>(query, new { pidRestaurante = idRestaurante }, commandType : CommandType.StoredProcedure).ToList();
+    }
+    return LBebidas;
+    }
+
      public static List<Categoria> GetCategorias(){
         List<Categoria> LCategorias;
        using (SqlConnection connection = new SqlConnection(conexion))

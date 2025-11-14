@@ -4,6 +4,8 @@ public class Plato{
     public string descripcion{get; private set;}
     public int calorias{get; private set;}
     public int precio{get; private set;}
+    public int dto{get; private set;}
+    public string codigoDescuento{get; private set;}
     public bool disponible{get; private set;}
     public int idCategoria{get; private set;}
     public int idRestaurante{get; private set;}
