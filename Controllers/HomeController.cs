@@ -36,18 +36,18 @@ public class HomeController : Controller
     
     public IActionResult verRestaurante(int idRestaurante)
      {
-        Restaurantes restaurante = BD.GetRestauranteBusqueda(idRestaurante);
+        Restaurante restaurante = BD.GetRestauranteBusqueda(idRestaurante);
         ViewBag.Restaurante=restaurante;
         List<Plato> LP=BD.GetPlatosRestaurante(idRestaurante);
         ViewBag.PlatosRestaurante=LP;
-        List<Bebida> LB=BD.GetPlatosRestaurante(idRestaurante);
+        List<Bebida> LB=BD.GetBebidasRestaurante(idRestaurante);
         ViewBag.BebidasRestaurante=LB;
         return View("restaurantes", "Home");
      }
 
      public IActionResult verPlato(int idPlato)
      {
-        Platos plato = BD.GetPlatoeBusqueda(idPlato);
+        Plato plato = BD.GetPlatoBusqueda(idPlato);
         ViewBag.Plato=plato;
         
         return View("plato", "Home");
@@ -61,14 +61,14 @@ public class HomeController : Controller
         return View("favoritos", "Home");
      }
 
-      public IActionResult verPromociones()
-     {
+   //    public IActionResult verPromociones()
+   //   {
         
-        List<Promocion> LPromos = BD.GetPromociones();
-        ViewBag.Promociones=LPromos  ;
+   //      List<Promocion> LPromos = BD.GetPromociones();
+   //      ViewBag.Promociones=LPromos  ;
         
-        return View("promociones", "Home");
-     }
+   //      return View("promociones", "Home");
+   //   }
 
      public IActionResult verNotificaciones(int idUsuario)
      {

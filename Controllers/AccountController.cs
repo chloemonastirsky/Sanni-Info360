@@ -14,7 +14,7 @@ public class AccountController : Controller
     public IActionResult Login()
     {
         
-        return View("iniciarSesion", "Account");
+        return View("iniciarSesion");
     }
 
     public IActionResult LoginGuardar(string email, string contraseña)

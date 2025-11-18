@@ -6,9 +6,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<!-- PASO 1: Sticky Footer - El body se convierte en un contenedor flexible que ocupa el 100% del alto -->
+<body class="d-flex flex-column min-vh-100">
 
-  <header>
+  <!-- PASO 2: Header Fijo - Se le asigna la clase para fijarlo con CSS -->
+  <header class="fixed-header">
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
       
@@ -22,12 +24,13 @@
                 <li><a class="dropdown-item" href="#">Inicio</a></li>
                 
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href='Url.Action("favoritos","Home")'>Favoritos</a></li>
-                <li><a class="dropdown-item" href='Url.Action("restaurantes","Home")'>Restaurantes</a></li>
-                <li><a class="dropdown-item" href='Url.Action("restricciones","Home")'>Restricciones</a></li>
-                <li><a class="dropdown-item" href='Url.Action("notificaciones","Home")'>Notificaciones</a></li>
-                <li><a class="dropdown-item" href='Url.Action("promociones","Home")'>Promociones</a></li>
-                <li><a class="dropdown-item" href='Url.Action("chatbot","Home")'>Chat</a></li>
+                <li><a class="dropdown-item" href='@Url.Action("verFavoritos","Home")'>Favoritos</a></li>
+                <li><a class="dropdown-item" href='@Url.Action("verRestaurantes","Home")'>Restaurantes</a></li>
+                <li><a class="dropdown-item" href='@Url.Action("verRestricciones","Home")'>Restricciones</a></li>
+                <li><a class="dropdown-item" href='@Url.Action("verNotificaciones","Home")'>Notificaciones</a></li>
+                <!-- ASUMO que la acción de promociones es "verPromociones" o similar, si no existe en el Controller, cámbiala. -->
+                <li><a class="dropdown-item" href='@Url.Action("verPromociones","Home")'>Promociones</a></li> 
+                <li><a class="dropdown-item" href='@Url.Action("chatbot","Home")'>Chat</a></li>
               </ul>
             </div>
             <img class="logo" src="imagenes/LOGO TERMINADO SANNI LISTO.png" alt="Logo">
@@ -42,16 +45,12 @@
       
         </div>
       </nav>
-      
-      
-          
     </header>
     
-    
-    <main role="main" class="pb-3">
+    <!-- PASO 3: Contenido Principal - Se le asigna la clase 'main-content' (para CSS) y 'flex-grow-1' (para sticky footer) -->
+    <main role="main" class="pb-3 main-content flex-grow-1">
         @RenderBody()
     </main>
- 
       
       <footer>
         <div class="footer-container">
@@ -78,16 +77,4 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-<button id="openModalBtn">Abrir Modal</button>
-
-  <div id="overlay" class="overlay">
-    <div id="modal" class="modal">
-      <span id="closeBtn" class="close">&times;</span>
-      <h2>Contenido del Modal</h2>
-      <p>Aquí va el contenido del modal que se despliega desde la izquierda.</p>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
 </html>

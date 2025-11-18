@@ -1,3 +1,19 @@
+fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  z-index: 1030;
+}
+
+/* 2. Empuja el contenido principal hacia abajo para que no quede detrás del header */
+.main-content {
+  margin-top: 70px; /* Debe ser igual o mayor a la altura de tu header (70px) */
+  /* Puedes añadir un padding-bottom al main para que el contenido no pegue con el footer */
+  padding-bottom: 50px; 
+}
+
+
 header nav div, header nav{
   background-color: #4A963F;
   height: 70px;

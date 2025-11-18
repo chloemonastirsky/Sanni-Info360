@@ -3,8 +3,7 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using Dapper;
 public class BD{
-    private static string conexion = @"Server=localhost; DataBase=sanni bd; Integrated Security = True; TrustServerCertificate=True";
-    
+    private static string conexion = @"Server=localhost; DataBase=[SANNI DB]; Integrated Security = True; TrustServerCertificate=True";    
     public static Usuario Login(string email, string contraseña){
         Usuario UserLogged=null;
         using(SqlConnection connection = new SqlConnection(conexion)){
@@ -62,12 +61,12 @@ public class BD{
     return LPlatos;
     }
 
-    public static List<Plato> GetBebidasRestaurante(int idRestaurante){
+    public static List<Bebida> GetBebidasRestaurante(int idRestaurante){
         List<Bebida> LBebidas;
        using (SqlConnection connection = new SqlConnection(conexion))
     {
         string query = "GetBebidasRestaurante";
-        LBebidas = connection.Query<Plato>(query, new { pidRestaurante = idRestaurante }, commandType : CommandType.StoredProcedure).ToList();
+        LBebidas = connection.Query<Bebida>(query, new { pidRestaurante = idRestaurante }, commandType : CommandType.StoredProcedure).ToList();
     }
     return LBebidas;
     }
