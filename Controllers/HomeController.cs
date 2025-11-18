@@ -15,83 +15,93 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View("Index", "Home");
+        // CORRECCIÓN: Si el archivo se llama Index.cshtml, basta con llamar a View()
+        return View();
     }
 
     public IActionResult verRestricciones()
     {
         List<Categoria> LCategorias = BD.GetCategorias();
-        ViewBag.Restricciones=LCategorias;
+        ViewBag.Restricciones = LCategorias;
 
-        return View("restricciones", "Home");
+        // CORRECCIÓN: Retorna la vista "restricciones"
+        return View("restricciones");
     }
 
-     public IActionResult verRestaurantes()
-     {
+    public IActionResult verRestaurantes()
+    {
         List<Restaurante> LRestaurantes = BD.GetRestaurantes();
-        ViewBag.catalogoRestaurantes=BD.GetRestaurantes();
+        ViewBag.catalogoRestaurantes = BD.GetRestaurantes();
         
-        return View("restaurantes", "Home");
-     }
+        // CORRECCIÓN: Retorna la vista "restaurantes"
+        return View("restaurantes");
+    }
     
     public IActionResult verRestaurante(int idRestaurante)
-     {
+    {
         Restaurante restaurante = BD.GetRestauranteBusqueda(idRestaurante);
-        ViewBag.Restaurante=restaurante;
-        List<Plato> LP=BD.GetPlatosRestaurante(idRestaurante);
-        ViewBag.PlatosRestaurante=LP;
-        List<Bebida> LB=BD.GetBebidasRestaurante(idRestaurante);
-        ViewBag.BebidasRestaurante=LB;
-        return View("restaurantes", "Home");
-     }
+        ViewBag.Restaurante = restaurante;
+        List<Plato> LP = BD.GetPlatosRestaurante(idRestaurante);
+        ViewBag.PlatosRestaurante = LP;
+        List<Bebida> LB = BD.GetBebidasRestaurante(idRestaurante);
+        ViewBag.BebidasRestaurante = LB;
+        // Se asume que esta vista es 'restauranteIndividual.cshtml' o algo similar.
+        // Si quieres volver a la vista de lista de restaurantes, úsala:
+        // return View("restaurantes"); 
+        
+        // Si quieres ver la info del restaurante individual, debes tener una vista
+        // con ese nombre (ejemplo: DetalleRestaurante.cshtml)
+        return View("restaurantes"); 
+    }
 
-     public IActionResult verPlato(int idPlato)
-     {
+    public IActionResult verPlato(int idPlato)
+    {
         Plato plato = BD.GetPlatoBusqueda(idPlato);
-        ViewBag.Plato=plato;
+        ViewBag.Plato = plato;
         
-        return View("plato", "Home");
-     }
+        // CORRECCIÓN: Retorna la vista "plato"
+        return View("plato");
+    }
 
-     public IActionResult verFavoritos(int idUsuario)
-     {
+    public IActionResult verFavoritos(int idUsuario)
+    {
         List<FavAgregados> LFavs = BD.GetFavoritos(idUsuario);
-        ViewBag.Favoritos=LFavs ;
+        ViewBag.Favoritos = LFavs;
         
-        return View("favoritos", "Home");
-     }
+        // CORRECCIÓN: Retorna la vista "favoritos"
+        return View("favoritos");
+    }
 
-   //    public IActionResult verPromociones()
-   //   {
-        
-   //      List<Promocion> LPromos = BD.GetPromociones();
-   //      ViewBag.Promociones=LPromos  ;
-        
-   //      return View("promociones", "Home");
-   //   }
+    // Si quieres usar esta acción, debes descomentarla y corregirla:
+    // public IActionResult verPromociones()
+    // {
+    //     List<Promocion> LPromos = BD.GetPromociones();
+    //     ViewBag.Promociones = LPromos;
+    //     return View("promociones");
+    // }
 
-     public IActionResult verNotificaciones(int idUsuario)
-     {
+    public IActionResult verNotificaciones(int idUsuario)
+    {
         List<NotificacionesUsuario> LNotis = BD.GetNotificacionesUsuario(idUsuario);
-        ViewBag.NotificacionesUsuario=LNotis;
-        return View("notificaciones", "Home");
-     }
+        ViewBag.NotificacionesUsuario = LNotis;
+        // CORRECCIÓN: Retorna la vista "notificaciones"
+        return View("notificaciones");
+    }
 
 
-      public IActionResult verPerfil(int idUsuario)
-     {
+    public IActionResult verPerfil(int idUsuario)
+    {
         Usuario usuarioAVer = BD.GetUsuario(idUsuario);
-        ViewBag.NombreUsuario=usuarioAVer.nombre;
-        return View("Perfil", "Home");
-     }
+        ViewBag.NombreUsuario = usuarioAVer.nombre;
+        // CORRECCIÓN: Retorna la vista "Perfil"
+        return View("Perfil");
+    }
 
-     public IActionResult verInfoUsuario(int idUsuario)
-     {
+    public IActionResult verInfoUsuario(int idUsuario)
+    {
         Usuario usuarioAVer = BD.GetUsuario(idUsuario);
-        ViewBag.InfoUsuario=usuarioAVer;
-        return View("Perfil", "Home");
-     }
-     
+        ViewBag.InfoUsuario = usuarioAVer;
+         return View("Perfil");
+    }
 
 }
-
