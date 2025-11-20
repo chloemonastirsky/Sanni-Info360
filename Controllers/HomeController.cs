@@ -40,18 +40,13 @@ public class HomeController : Controller
     public IActionResult verRestaurante(int idRestaurante)
     {
         Restaurante restaurante = BD.GetRestauranteBusqueda(idRestaurante);
-        ViewBag.Restaurante = restaurante;
+        ViewBag.Restaurante = BD.GetRestauranteBusqueda(idRestaurante);
         List<Plato> LP = BD.GetPlatosRestaurante(idRestaurante);
         ViewBag.PlatosRestaurante = LP;
         List<Bebida> LB = BD.GetBebidasRestaurante(idRestaurante);
         ViewBag.BebidasRestaurante = LB;
-        // Se asume que esta vista es 'restauranteIndividual.cshtml' o algo similar.
-        // Si quieres volver a la vista de lista de restaurantes, úsala:
-        // return View("restaurantes"); 
         
-        // Si quieres ver la info del restaurante individual, debes tener una vista
-        // con ese nombre (ejemplo: DetalleRestaurante.cshtml)
-        return View("restaurantes"); 
+        return View("Restaurante"); 
     }
 
     public IActionResult verPlato(int idPlato)
@@ -103,5 +98,7 @@ public class HomeController : Controller
         ViewBag.InfoUsuario = usuarioAVer;
          return View("Perfil");
     }
+
+    
 
 }

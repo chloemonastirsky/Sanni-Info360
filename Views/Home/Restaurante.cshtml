@@ -1,45 +1,29 @@
 <!-- Sección: COMIDAS -->
             <section id="comidas">
-              <h2>Comidas</h2>
-          
+            <h2>@ViewBag.Restaurante.nombre</h2>
               <!-- Comida 1 -->
               <article>
-                <!-- acá va la foto del plato -->
-                <img src="" alt="">
-                <!-- acá va el nombre del plato -->
-                <h3>nom</h3>
-                <!-- acá va la descripción del plato -->
-                <p>des</p>
-                <!-- acá van los íconos (porciones, calorías, etc.) -->
-                <div>iconos</div>
+                <p>Tipo de Comida: @ViewBag.Restaurante.tipoComida</p>
+                <p>Rating: @ViewBag.Restaurante.promedioRating</p>
+                <p>Dirección: @ViewBag.Restaurante.direccion</p>
               </article>
 
              
 
               <!-- Comida 2 -->
               <article>
-                <img src="" alt="">
-                <h3>x</h3>
-                <p>x</p>
-                <div>x</div>
+              <h2>Platos</h2>
+            @foreach (var p in ViewBag.PlatosRestaurante)
+            {
+                <p>@p.nombre</p>
+                <p>@p.descripcion</p>
+                <p>@p.precio</p>
+            }
               </article>
-
-              
-          
-              <!-- Comida 3 -->
-              <article>
-                <img src="" alt="">
-                <h3>x</h3>
-                <p>x</p>
-                <div>x</div>
-              </article>
-            </section>
-
 
             <li><hr class="divider"></li>
           
           
-            <!-- Sección: PROMOS -->
             <section id="promos">
               <h2>Promos</h2>
           
@@ -63,7 +47,6 @@
             <li><hr class="divider"></li>
           
           
-            <!-- Sección: TUS FAVORITOS -->
             <section id="favoritos">
               <h2>Tus Favoritos</h2>
           
@@ -93,18 +76,12 @@
           
               <!-- Bebida 1 -->
               <article>
-                <h3>x</h3>
-                <p>x</p>
-                <div>x</div>
+                @foreach (var b in ViewBag.BebidasRestaurante)
+            {
+                <p>@b.nombre</p>
+                <p>@b.descripcion</p>
+            }
               </article>
-          
-              <!-- Bebida 2 -->
-              <article>
-                <h3>x</h3>
-                <p>x</p>
-                <div>x</div>
-              </article>
-            </section>
 
             <li><hr class="divider"></li>
           

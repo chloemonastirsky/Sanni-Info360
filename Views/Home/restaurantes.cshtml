@@ -1,0 +1,15 @@
+@{
+    Layout = "_Layout";
+}
+
+@foreach (var r in ViewBag.catalogoRestaurantes)
+{
+    <a class="btn btn-primary" href='@Url.Action("verRestaurante", "Home", new {idRestaurante= r.idRestaurante})'>
+        @r.nombre
+    </a>
+    
+    <p> @r.tipoComida</p>
+    <p> @r.promedioRating</p>
+    <p> @r.horario</p>
+}
+    

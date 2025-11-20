@@ -3,7 +3,7 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using Dapper;
 public class BD{
-    private static string conexion = @"Server=localhost; DataBase=[SANNI DB]; Integrated Security = True; TrustServerCertificate=True";    
+    private static string conexion = @"Server=localhost; DataBase=Sanni; Integrated Security = True; TrustServerCertificate=True";    
     public static Usuario Login(string email, string contraseña){
         Usuario UserLogged=null;
         using(SqlConnection connection = new SqlConnection(conexion)){
@@ -117,6 +117,22 @@ public class BD{
 }
 
 public static List<FavAgregados> GetFavoritos(int idUsuario){
+    
+    List<FavAgregados> LFavs;
+    using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetFavoritos";
+        LFavs = connection.Query<FavAgregados>(
+            query, 
+            new { pidUsuario = idUsuario }, 
+            commandType: CommandType.StoredProcedure
+        ).ToList();
+    }
+
+    return LFavs;
+}
+
+public static List<FavAgregados> GetFavoritosRestaurante(int idUsuario, int idRestaurante){
     
     List<FavAgregados> LFavs;
     using (SqlConnection connection = new SqlConnection(conexion))
