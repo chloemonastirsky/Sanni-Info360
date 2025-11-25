@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Sanni-Info360\\Sanni.csproj": {}
+    "C:\\Users\\49552251\\Sanni-Info360-1\\Sanni.csproj": {}
   },
   "projects": {
-    "C:\\Sanni-Info360\\Sanni.csproj": {
+    "C:\\Users\\49552251\\Sanni-Info360-1\\Sanni.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Sanni-Info360\\Sanni.csproj",
+        "projectUniqueName": "C:\\Users\\49552251\\Sanni-Info360-1\\Sanni.csproj",
         "projectName": "Sanni",
-        "projectPath": "C:\\Sanni-Info360\\Sanni.csproj",
+        "projectPath": "C:\\Users\\49552251\\Sanni-Info360-1\\Sanni.csproj",
         "packagesPath": "C:\\Users\\49552251\\.nuget\\packages\\",
-        "outputPath": "C:\\Sanni-Info360\\obj\\",
+        "outputPath": "C:\\Users\\49552251\\Sanni-Info360-1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -55,7 +55,7 @@
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[6.1.2, )"
+              "version": "[6.1.3, )"
             }
           },
           "imports": [

@@ -4,5 +4,7 @@
 
  @foreach (var r in ViewBag.Restricciones)
     {
-            <p> @r.nombre</p>
+            <a class="btn btn-primary" href='@Url.Action("verRestriccion", "Home", new {idRestaurante= r.idRestaurante})'>
+        @r.nombre
+    </a>
     }

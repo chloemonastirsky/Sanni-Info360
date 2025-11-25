@@ -1,5 +1,10 @@
 <section>
     <h1>Notificaciones</h1>
-    <!-- uSAR FOREACH -->
+     @foreach (var n in ViewBag.NotificacionesUsuario)
+            {
+                <p>@n.categoria</p>
+                <p>@n.fecha</p>
+                <p>@n.mensaje</p>
+            }
 </section>
 

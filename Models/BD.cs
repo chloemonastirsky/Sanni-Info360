@@ -137,10 +137,10 @@ public static List<FavAgregados> GetFavoritosRestaurante(int idUsuario, int idRe
     List<FavAgregados> LFavs;
     using (SqlConnection connection = new SqlConnection(conexion))
     {
-        string query = "GetFavoritos";
+        string query = "GetFavoritosRestaurante";
         LFavs = connection.Query<FavAgregados>(
             query, 
-            new { pidUsuario = idUsuario }, 
+            new { pidUsuario = idUsuario , pidRestaurante=idRestaurante}, 
             commandType: CommandType.StoredProcedure
         ).ToList();
     }

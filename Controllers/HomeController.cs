@@ -88,6 +88,7 @@ public class HomeController : Controller
     {
         Usuario usuarioAVer = BD.GetUsuario(idUsuario);
         ViewBag.NombreUsuario = usuarioAVer.nombre;
+        ViewBag.DireccionUsuario = usuarioAVer.direccion;
         // CORRECCIÓN: Retorna la vista "Perfil"
         return View("Perfil");
     }
@@ -98,6 +99,16 @@ public class HomeController : Controller
         ViewBag.InfoUsuario = usuarioAVer;
          return View("Perfil");
     }
+
+    
+
+   public IActionResult verRestriccion(int idCategoria){
+        ViewBag.Restriccion = BD.GetRestriccionBusqueda(idCategoria);
+        List<Plato> LP = BD.GetPlatosRestriccion(idCategoria);
+        ViewBag.PlatosRestriccion = LP;
+        List<Bebida> LB = BD.GetBebidasRestriccion(idCategoria);
+        ViewBag.BebidasRestriccion = LB;
+   }
 
     
 

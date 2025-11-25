@@ -1,5 +1,9 @@
 <section>
     <h2>Favoritos</h2>
-
-    <!-- Usar foreach -->
+    @foreach (var fav in ViewBag.Favoritos)
+            {
+                <p>@fav.nombrePlato</p>
+                <p>@fav.nombreRestaurante</p>
+                <p>@fav.nombreBebida</p>
+            }
 </section>
