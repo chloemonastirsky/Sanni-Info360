@@ -1,0 +1,58 @@
+@{
+    Layout = "_Layout";
+}
+
+@* 1. Opcional: Mostrar el nombre de la Restricción seleccionada (si GetRestriccionBusqueda devuelve un objeto con la propiedad 'nombre') *@
+@if (ViewBag.Restriccion != null)
+{
+    <h2>@ViewBag.Restriccion.nombre</h2>
+    <hr />
+}
+else
+{
+    <h2>Resultados de la Restricción</h2>
+}
+
+
+<h3>Platos Disponibles</h3>
+@if (ViewBag.PlatosRestriccion != null && ViewBag.PlatosRestriccion.Count > 0)
+{
+    @foreach (var p in ViewBag.PlatosRestriccion)
+    {
+        <div class="item-plato">
+            <a class="btn btn-primary" href='@Url.Action("verPlato", "Home", new {idPlato= p.idPlato})'>
+                @p.nombre
+            </a>
+            
+            <p><strong>Descripción:</strong> @p.descripcion</p>
+            <p><strong>Calorías:</strong> @p.calorias</p>
+            <p><strong>Precio:</strong> $@p.precio</p>
+        </div>
+        <br/>
+    }
+}
+else
+{
+    <p>No se encontraron platos para esta restricción.</p>
+}
+
+<hr />
+
+<h3>Bebidas Disponibles</h3>
+@if (ViewBag.BebidasRestriccion != null && ViewBag.BebidasRestriccion.Count > 0)
+{
+    @foreach (var b in ViewBag.BebidasRestriccion)
+    {
+        <div class="item-bebida">
+            @* Aquí puedes agregar un enlace si tienes una vista para verBebida *@
+            <h4>@b.nombre</h4> 
+            <p><strong>Descripción:</strong> @b.descripcion</p>
+            @* Las bebidas no tienen calorias ni precio en tu esquema de DB, solo las mostramos por nombre y descripción *@
+        </div>
+        <br/>
+    }
+}
+else
+{
+    <p>No se encontraron bebidas para esta restricción.</p>
+}

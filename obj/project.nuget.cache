@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TG4GYSg6ohgI/4CPoJuFMNOu67B7TABn21ueXsdUD1a27cMsxhjr1kObvioofue8xZ7ucX6HApyH4suebPHwKQ==",
+  "dgSpecHash": "hrvLLpqBcP0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\49552251\\Sanni-Info360-1\\Sanni.csproj",
+  "projectFilePath": "C:\\Users\\49552251\\Sanni-Info360\\Sanni.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\49552251\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\49552251\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

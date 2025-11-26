@@ -15,9 +15,10 @@
               <h2>Platos</h2>
             @foreach (var p in ViewBag.PlatosRestaurante)
             {
-                <p>@p.nombre</p>
+                <h4>@p.nombre</h4>
                 <p>@p.descripcion</p>
                 <p>@p.precio</p>
+                <a class="btn btn-primary" href='@Url.Action("verPlato", "Home", new {idPlato= p.idPlato})'> Ver Plato </a>
             }
               </article>
 
@@ -26,14 +27,14 @@
           
             <section id="promos">
               <h2>Promos</h2>
-          
-              <!-- Promo destacada -->
-              <div>
-                <!-- acá va la foto de la promo -->
-                <img src="" alt="">
-                <!-- acá va el texto de la promoción (ej: 2x1) -->
-                <p>x</p>
-              </div>
+            @foreach (var p in ViewBag.Promos)
+            {
+                <h4>@p.nombre</h4>
+                <p>@p.descuento</p>
+                <p>@p.fechaIncio</p>
+                <p>@p.fechaFin</p>
+                <a class="btn btn-primary" href='@Url.Action("verPlato", "Home", new {idPlato= p.idPlato})'> Ver Promo </a>
+            }
             </section>
           
             <li><hr class="divider"></li>
@@ -80,6 +81,7 @@
             {
                 <p>@b.nombre</p>
                 <p>@b.descripcion</p>
+                 <a class="btn btn-primary" href='@Url.Action("verBebida", "Home", new {idBebida= b.idBebida})'> Ver Bebida </a>
             }
               </article>
 

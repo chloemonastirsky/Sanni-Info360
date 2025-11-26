@@ -45,6 +45,8 @@ public class HomeController : Controller
         ViewBag.PlatosRestaurante = LP;
         List<Bebida> LB = BD.GetBebidasRestaurante(idRestaurante);
         ViewBag.BebidasRestaurante = LB;
+        List<Promocion>LPromos=BD.GetPromosRestaurante(idRestaurante);
+        ViewBag.Promos=LPromos;
         
         return View("Restaurante"); 
     }
@@ -52,18 +54,27 @@ public class HomeController : Controller
     public IActionResult verPlato(int idPlato)
     {
         Plato plato = BD.GetPlatoBusqueda(idPlato);
+        int idRestaurante= plato.idRestaurante;
         ViewBag.Plato = plato;
-        
-        // CORRECCIÓN: Retorna la vista "plato"
-        return View("plato");
+        Restaurante restaurantePlato=BD.GetRestauranteBusqueda(idRestaurante);
+        ViewBag.restaurante=restaurantePlato;
+        string nombreRestaurante=restaurantePlato.nombre;
+        ViewBag.nombreRestaurante=nombreRestaurante;
+        return View("Plato");
     }
+
+    public IActionResult verBebida(int idBebida)
+    {
+        Bebida bebida = BD.GetBebidaBusqueda(idBebida);
+        ViewBag.Bebida = bebida;
+        return View("bebida");
+    }
+
 
     public IActionResult verFavoritos(int idUsuario)
     {
         List<FavAgregados> LFavs = BD.GetFavoritos(idUsuario);
         ViewBag.Favoritos = LFavs;
-        
-        // CORRECCIÓN: Retorna la vista "favoritos"
         return View("favoritos");
     }
 
@@ -108,6 +119,7 @@ public class HomeController : Controller
         ViewBag.PlatosRestriccion = LP;
         List<Bebida> LB = BD.GetBebidasRestriccion(idCategoria);
         ViewBag.BebidasRestriccion = LB;
+        return View("restriccion");
    }
 
     

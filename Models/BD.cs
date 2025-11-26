@@ -91,6 +91,16 @@ public class BD{
         return platoBuscado;
     }
 
+     public static Bebida GetBebidaBusqueda(int idBebida){
+        Bebida bebida=null;
+
+        using(SqlConnection connection = new SqlConnection(conexion)){
+            string query = "GetBebidaBusqueda";
+            bebida= connection.QueryFirstOrDefault<Bebida>(query, new {pidBebida=idBebida},commandType : CommandType.StoredProcedure);
+        }
+        return bebida;
+    }
+
     public static Restaurante GetRestauranteBusqueda(int idRestaurante){
         Restaurante restauranteBuscado=null;
         using(SqlConnection connection = new SqlConnection(conexion)){
@@ -148,4 +158,55 @@ public static List<FavAgregados> GetFavoritosRestaurante(int idUsuario, int idRe
     return LFavs;
 }
 
+
+public static Categoria GetRestriccionBusqueda(int idCategoria){
+    
+    Categoria restriccion;
+    using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetRestriccionBusqueda";
+        restriccion = connection.QueryFirstOrDefault<Categoria>(query, new {pidCategoria=idCategoria}, commandType : CommandType.StoredProcedure);
+    }
+
+    return restriccion;
+}
+
+
+public static List<Plato> GetPlatosRestriccion(int idCategoria){
+    
+    List<Plato> LPlatos;
+       using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetPlatosRestriccion";
+        LPlatos = connection.Query<Plato>(query, new { pidCategoria = idCategoria }, commandType : CommandType.StoredProcedure).ToList();
+    }
+    return LPlatos;
+}
+
+public static List<Bebida> GetBebidasRestriccion(int idCategoria){
+    
+    List<Bebida> LBebidas;
+       using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetBebidasRestriccion";
+        LBebidas = connection.Query<Bebida>(query, new { pidCategoria = idCategoria }, commandType : CommandType.StoredProcedure).ToList();
+    }
+    return LBebidas;
+}
+
+public static List<Promocion> GetPromosRestaurante(int idRestaurante){
+    
+    List<Promocion> LPromos;
+    using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetPromosRestaurante";
+        LPromos = connection.Query<Promocion>(
+            query, 
+            new {pidRestaurante=idRestaurante}, 
+            commandType: CommandType.StoredProcedure
+        ).ToList();
+    }
+
+    return LPromos;
+}
 }

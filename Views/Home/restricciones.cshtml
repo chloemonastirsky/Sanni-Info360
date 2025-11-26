@@ -2,9 +2,36 @@
     Layout = "_Layout";
 }
 
- @foreach (var r in ViewBag.Restricciones)
-    {
-            <a class="btn btn-primary" href='@Url.Action("verRestriccion", "Home", new {idRestaurante= r.idRestaurante})'>
-        @r.nombre
-    </a>
-    }
+<div class="container mt-5">
+    <h1 class="mb-5 text-center text-success">Busca por Restricciones Dietéticas</h1>
+    <div class="row justify-content-center">
+        
+        @if (ViewBag.Restricciones != null && ViewBag.Restricciones.Count > 0)
+        {
+            @foreach (var r in ViewBag.Restricciones)
+            {
+                // Tarjeta de restricción (ocupa 3 de 12 columnas, centrando 4 por fila)
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 shadow-sm border-secondary text-center">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            
+                            <h5 class="card-title text-dark">@r.nombre</h5>
+                            
+                            @* El botón es el enlace de la tarjeta *@
+                            <a class="btn btn-outline-success mt-3 w-100" href='@Url.Action("verRestriccion", "Home", new {idCategoria= r.idCategoria})'>
+                                Ver Platos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <p class="alert alert-warning">No hay restricciones definidas actualmente.</p>
+            </div>
+        }
+
+    </div>
+</div>

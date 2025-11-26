@@ -1,15 +1,65 @@
+
 @{
     Layout = "_Layout";
 }
 
-@foreach (var r in ViewBag.catalogoRestaurantes)
-{
-    <a class="btn btn-primary" href='@Url.Action("verRestaurante", "Home", new {idRestaurante= r.idRestaurante})'>
-        @r.nombre
-    </a>
-    
-    <p> @r.tipoComida</p>
-    <p> @r.promedioRating</p>
-    <p> @r.horario</p>
-}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center text-success">Descubre nuestros Restaurantes Saludables</h1>
+    <div class="row">
+        
+        @if (ViewBag.catalogoRestaurantes != null)
+        {
+            @foreach (var r in ViewBag.catalogoRestaurantes)
+            {
+                // Tarjeta de Restaurante (ocupa 4 de 12 columnas en escritorio)
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm border-success">
+                        <div class="card-body">
+                            
+                            @* Título del Restaurante y Enlace *@
+                            <h5 class="card-title text-success">
+                                @r.nombre
+                                @* Aquí podrías añadir una imagen si tu modelo la tuviera *@
+                                @* <img src="@Url.Content("~/ruta/imagen.jpg")" class="img-fluid rounded-start" alt="@r.nombre"> *@
+                            </h5>
+                            
+                            @* Rating y Tipo de Comida *@
+                            <p class="card-text">
+                                <span class="badge bg-info text-dark me-2">
+                                    ⭐ **Rating:** @r.promedioRating
+                                </span>
+                                
+                                <span class="badge bg-success">
+                                    @r.tipoComida
+                                </span>
+                            </p>
+                            
+                            <p class="card-text text-muted">
+                                🕒 **Horario de Pedido:** @r.horario 
+                            </p>
+
+                        </div>
+                        
+                        <div class="card-footer bg-white border-0 pt-0">
+                            @* Botón que lleva a la vista de detalle del restaurante *@
+                            <a class="btn btn-primary w-100" href='@Url.Action("verRestaurante", "Home", new {idRestaurante= r.idRestaurante})'>
+                                Ver Menú
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <p class="alert alert-warning">No hay restaurantes disponibles en el catálogo.</p>
+            </div>
+        }
+        
+    </div>
+</div>
+
+
+
     

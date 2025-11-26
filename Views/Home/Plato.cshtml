@@ -1,81 +1,98 @@
- 
-                <!-- Tarjeta del restaurante -->
-                <section class="restaurant-card">
-                    <!-- Nombre del restaurante -->
-                    <h2>nombre resto</h2>
-                    
-                    <!-- Estrellas de valoración -->
-                    <div class="rating">
-                        <!-- ⭐⭐⭐⭐⭐ -->
-                        <span>⭐⭐⭐⭐⭐</span>
+@{
+    Layout = "_Layout";
+    var plato = ViewBag.Plato; // Acceso a la información del plato
+    
+    // Suponiendo que tienes las propiedades nutricionales en el modelo Plato
+    // Si no existen, deberás obtenerlas de otro lado o usar datos dummy/fijos
+    int calorias = plato.calorias;
+    int proteinas = 40; // Dato de ejemplo, ajusta a tu modelo
+    int carbohidratos = 40; // Dato de ejemplo, ajusta a tu modelo
+    int fibra = 10; // Dato de ejemplo, ajusta a tu modelo
+    int grasas = 10; // Dato de ejemplo, ajusta a tu modelo
+
+    // Lógica de cálculo del precio con descuento (dto)
+    decimal precioFinal = (decimal)plato.precio * (1 - (plato.dto / 100.0m));
+}
+
+@if (plato != null)
+{
+    <div class="container my-4">
+        
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8 col-md-10">
+                <div class="d-flex flex-column align-items-center bg-light p-4 rounded-3 shadow-sm" style="background-color: #fcf8e3;">
+                    <h3 class="fw-bold">@ViewBag.nombreRestaurante</h3>
+                    <div class="text-warning fs-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                     </div>
-                    
-                    <!-- Información de envío y precio -->
-                    <p>Entrega en x min</p>
-                    <p>Precio del envío: x</p>
-                </section>
-            
-                <!-- Barra de categorías -->
-                <nav class="categories">
-                    <!-- Botones de filtro -->
-                    <button>Comidas</button>
-                    <button>Favoritos</button>
-                    <button>Promos</button>
-                    <button>Destacados</button>
-                </nav>
-
-                 <!-- Tarjeta del producto -->
-    <section class="product-card">
-        <!-- Imagen del plato -->
-        <div class="product-image">foto</div>
-
-        <!-- Nombre del plato -->
-        <h3>nombre plato</h3>
-
-        <!-- Precio -->
-        <p>$xxxxx</p>
-
-        <!-- Iconos (ej: kosher, vegano, favorito) -->
-        <div class="icons">iconos</div>
-
-        <!-- Descripción del plato -->
-        <p>Descripción: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-
-        <!-- Información nutricional -->
-        <div class="nutrition-info">
-            <h4>Información nutricional:</h4>
-            <ul>
-                <li>Cals: x</li>
-                <li>Prote: x</li>
-                <li>Carbs: x</li>
-                <li>Fibra: x</li>
-                <li>Grasas: x</li>
-            </ul>
+                    <small class="text-muted">Entrega en: x min - Precio del envío: $$</small>
+                </div>
+            </div>
         </div>
 
-        <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  ¡CUPON!
-</button>
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 col-md-10 d-flex justify-content-around">
+                <a href="#" class="btn btn-sm btn-success rounded-pill">Comidas</a>
+                <a href="#" class="btn btn-sm btn-success rounded-pill">Favoritos</a>
+                <a href="#" class="btn btn-sm btn-success rounded-pill">Promos</a>
+                <a href="#" class="btn btn-sm btn-success rounded-pill">Destacados</a>
+            </div>
+        </div>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">50% Off Combo Compelto</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="" alt=""> <!-- Foto QR -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card p-3 p-md-4 shadow-lg border-0">
+                    <div class="text-center">
+                        
+                        @* foto *@
+                        
+                        <h2 class="fw-bold mt-3" style="color: #4CAF50;">@plato.nombre</h2>
+                        
+                        @* Iconos de restricción: Apto Vegano, Sin TACC, etc. (ajusta según tus reglas) *@
+                        <p class="text-center my-2">
+                             <span class="badge bg-secondary me-2">👨‍🍳</span>
+                             <span class="badge bg-secondary me-2">🚫🌾</span>
+                             <span class="badge bg-secondary me-2">🌱</span>
+                        </p>
+                        
+                        @* Lógica de Precio y Descuento *@
+                        <h3 class="fw-bolder mb-3">
+                            $@precioFinal.ToString("N0")
+                            @if (plato.dto > 0)
+                            {
+                                <small class="text-decoration-line-through text-muted fs-6 ms-2">$@plato.precio.ToString("N0")</small>
+                            }
+                        </h3>
+                        
+                        <p class="text-muted px-4">@plato.descripcion</p>
+                        
+                        <div class="d-flex flex-wrap justify-content-center gap-2 my-4">
+                            <span class="badge text-dark fw-bold p-2" style="background-color: #fdd835;">Cals @calorias</span>
+                            <span class="badge text-dark fw-bold p-2" style="background-color: #fdd835;">Prote @proteinas gr</span>
+                            <span class="badge text-dark fw-bold p-2" style="background-color: #fdd835;">Carbs @carbohidratos gr</span>
+                            <span class="badge text-dark fw-bold p-2" style="background-color: #fdd835;">Fibra @fibra gr</span>
+                            <span class="badge text-dark fw-bold p-2" style="background-color: #fdd835;">Grasas @grasas gr</span>
+                        </div>
+                        
+                        <div class="d-grid gap-2 mx-auto" style="max-width: 80%;">
+                            <button class="btn btn-lg fw-bold" style="background-color: #4CAF50; color: white;">
+                                ¡CUPÓN!
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         
-    </section>
-
+    </div>
     
+}
+else
+{
+    <div class="container my-5 text-center">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">¡Plato no encontrado!</h4>
+        </div>
+    </div>
+}
