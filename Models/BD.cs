@@ -172,6 +172,18 @@ public static Categoria GetRestriccionBusqueda(int idCategoria){
 }
 
 
+public static Categoria BusquedaRestricciones(string busqueda){
+
+    Categoria restriccion;
+    using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "BusquedaRestricciones";
+        restriccion = connection.QueryFirstOrDefault<Categoria>(query, new {pbusqueda=busqueda}, commandType : CommandType.StoredProcedure);
+        //HACER SORED PROCEDURE
+} 
+}
+
+
 public static List<Plato> GetPlatosRestriccion(int idCategoria){
     
     List<Plato> LPlatos;
@@ -209,4 +221,22 @@ public static List<Promocion> GetPromosRestaurante(int idRestaurante){
 
     return LPromos;
 }
+public static void editarPerfil(int idUsuario, string nombre, string apellido, string direccion, string email, string contrasena, int telefono){
+    
+    using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "editarPerfil";
+        connection.Execute(query, new { pnombre=nombre, papellido=apellido, pemail=email, pcontrasena=contrasena, pdireccion=direccion, ptelefono=telefono}, commandType : CommandType.StoredProcedure);
+    }
+
 }
+public static List<Restaurante> RecibirApi(){
+        Restaurante ubicacion= new Restaurante();
+        string query = "recibirApi";
+        using (SqlConnection connection = new SqlConnection(conexion)){
+            ubicacion = connection.Query<Restaurante>(query, new {}, commandType : CommandType.StoredProcedure);
+        }
+        return ubicacion;
+    }
+}
+

@@ -5,5 +5,5 @@
     public string descripcion{get; private set;}
     public bool disponible{get; private set;}
     public int idRestaurante{get; private set;}
-     
+    public string foto{get; private set;}
  }

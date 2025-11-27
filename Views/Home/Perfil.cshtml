@@ -1,4 +1,4 @@
-   <section class="profile-card">
+    <section class="profile-card">
             <!-- Foto del usuario -->
             <img src="x" alt="foto usuario"> <!-- Aca va la foto o icono del usuario -->
 
@@ -11,8 +11,10 @@
 
         <!-- Botones del perfil -->
         <nav class="profile-options">
-            <button>Información del perfil</button>
-            <button>Notificaciones</button>
-            <button>Favoritos</button>
-            <button>Cerrar sesión</button>
+        <a href='Url.Action("editarPerfil","Account")'new {idUsuario= ViewBag.Usuario.idUsuario}><button class="">Información del perfil</button></a>
+        <a href='Url.Action("notificaciones","Home")'><button class="">Notificaciones</button></a>
+        <a href='Url.Action("favoritos","Home")'><button class="">Favoritos</button></a>
+        <a href='Url.Action("CerrarSesion","Account")'><button>Cerrar sesión</button></a>
+            
+           
         </nav>

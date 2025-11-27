@@ -1,0 +1,86 @@
+@{
+    Layout = "_Layout";
+    // Usamos 'bebida' para acceder a la información desde ViewBag
+    var bebida = ViewBag.Bebida; 
+}
+
+@if (bebida != null)
+{
+    <div class="container my-4">
+        
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8 col-md-10">
+                <div class="d-flex flex-column align-items-center bg-light p-4 rounded-3 shadow-sm" style="background-color: #fcf8e3;">
+                    <h3 class="fw-bold">@ViewBag.restaurante.nombre</h3>
+                    <div class="text-warning fs-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <small class="text-muted">Entrega en: x min - Precio del envío: $$</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 col-md-10 d-flex justify-content-around">
+                <a href="#" class="btn btn-sm btn-success rounded-pill">Comidas</a>
+                <a href="#" class="btn btn-sm btn-success rounded-pill">Favoritos</a>
+                <a href="#" class="btn btn-sm btn-success rounded-pill">Promos</a>
+                <a href="#" class="btn btn-sm btn-success rounded-pill">Destacados</a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card p-3 p-md-4 shadow-lg border-0">
+                    <div class="text-center">
+                        
+                        @* <img src="@Url.Content("~/imagenes/bebidas/bebida_" + bebida.idBebida + ".jpg")" 
+                             alt="@bebida.nombre" 
+                             class="img-fluid rounded-circle shadow-sm" 
+                             style="width: 200px; height: 200px; object-fit: cover; margin-top: -80px; border: 5px solid white;" onerror="this.src='@Url.Content("~/imagenes/bebidas/default.jpg")'">*@
+                        
+                        <h2 class="fw-bold mt-3" style="color: #4CAF50;">@bebida.nombre</h2>
+                        
+                        <p class="text-center my-2">
+                             <span class="badge bg-secondary me-2">🧊</span> 
+                             <span class="badge bg-secondary me-2">🚫🌾</span> 
+                             <span class="badge bg-secondary me-2">🌱</span> 
+                        </p>
+                        
+                        <h4 class="text-muted mb-4">
+                            @if (bebida.disponible)
+                            {
+                                <span class="text-success">Disponible</span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">Agotado</span>
+                            }
+                        </h4>
+
+                        <p class="text-muted px-4">@bebida.descripcion</p>
+                        
+                        <div class="d-grid gap-2 mx-auto mt-5" style="max-width: 80%;">
+                            <button class="btn btn-lg fw-bold" style="background-color: #4CAF50; color: white;" 
+                                    @if (!bebida.disponible) { <text> disabled </text> }>
+                                Añadir al Pedido
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+}
+else
+{
+    <div class="container my-5 text-center">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">¡Bebida no encontrada!</h4>
+            <p>Lo sentimos, la bebida solicitada no está disponible.</p>
+        </div>
+    </div>
+}

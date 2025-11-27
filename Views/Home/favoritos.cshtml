@@ -1,9 +1,18 @@
 <section>
     <h2>Favoritos</h2>
+
+    <!-- Agregamos favoritos desde platos y usando ajax para asincronicamente agregarlo a la tabla de favoritos usando el id del usuario(en sesion) y el id del plato(se envia al hacer click)-->
     @foreach (var fav in ViewBag.Favoritos)
             {
-                <p>@fav.nombrePlato</p>
-                <p>@fav.nombreRestaurante</p>
-                <p>@fav.nombreBebida</p>
+                 <div class="item-plato">
+            <a class="btn btn-primary" href='@Url.Action("verPlato", "Home", new {idPlato= fav.idPlato})'>
+                @fav.nombre
+            </a>
+            
+            <p><strong>Descripción:</strong> @fav.descripcion</p>
+            <p><strong>Calorías:</strong> @fav.calorias</p>
+            <p><strong>Precio:</strong> $@fav.precio</p>
+        </div>
+        <br/>
             }
 </section>

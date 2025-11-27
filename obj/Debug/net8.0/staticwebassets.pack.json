@@ -1,119 +1,119 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\LOGO SIMPLIFICADO SANNI.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\LOGO SIMPLIFICADO SANNI.png",
       "PackagePath": "staticwebassets\\imagenes\\LOGO SIMPLIFICADO SANNI.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\LOGO TERMINADO SANNI LISTO.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\LOGO TERMINADO SANNI LISTO.png",
       "PackagePath": "staticwebassets\\imagenes\\LOGO TERMINADO SANNI LISTO.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\iconoCarrito.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoCarrito.png",
       "PackagePath": "staticwebassets\\imagenes\\iconoCarrito.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\iconoInstagram.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoInstagram.png",
       "PackagePath": "staticwebassets\\imagenes\\iconoInstagram.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\iconoLupa.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoLupa.png",
       "PackagePath": "staticwebassets\\imagenes\\iconoLupa.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\iconoMenu.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoMenu.png",
       "PackagePath": "staticwebassets\\imagenes\\iconoMenu.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\iconoUsuario.webp",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoUsuario.webp",
       "PackagePath": "staticwebassets\\imagenes\\iconoUsuario.webp"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\iconoX.webp",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoX.webp",
       "PackagePath": "staticwebassets\\imagenes\\iconoX.webp"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\ig.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\ig.png",
       "PackagePath": "staticwebassets\\imagenes\\ig.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\logo simplificado editado.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\logo simplificado editado.png",
       "PackagePath": "staticwebassets\\imagenes\\logo simplificado editado.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\telefono.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\telefono.png",
       "PackagePath": "staticwebassets\\imagenes\\telefono.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\tt.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\tt.png",
       "PackagePath": "staticwebassets\\imagenes\\tt.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\w editada.jpg",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\w editada.jpg",
       "PackagePath": "staticwebassets\\imagenes\\w editada.jpg"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\imagenes\\x.png",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\x.png",
       "PackagePath": "staticwebassets\\imagenes\\x.png"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\js\\script.js",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\49552251\\Sanni-Info360\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

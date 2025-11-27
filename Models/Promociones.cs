@@ -4,5 +4,7 @@
     public int descuento{get; private set;}
     public DateTime fechaIncio{get; private set;}
     public DateTime fechaFin{get; private set;}
+    public string foto{get; private set;}
+
 
  }

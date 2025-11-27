@@ -16,7 +16,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         // CORRECCIÓN: Si el archivo se llama Index.cshtml, basta con llamar a View()
-        return View();
+        return View("Index");
     }
 
     public IActionResult verRestricciones()
@@ -67,6 +67,9 @@ public class HomeController : Controller
     {
         Bebida bebida = BD.GetBebidaBusqueda(idBebida);
         ViewBag.Bebida = bebida;
+        int idRestaurante= bebida.idRestaurante;
+        Restaurante restauranteBebida=BD.GetRestauranteBusqueda(idRestaurante);
+        ViewBag.restaurante=restauranteBebida;
         return View("bebida");
     }
 
@@ -98,6 +101,7 @@ public class HomeController : Controller
     public IActionResult verPerfil(int idUsuario)
     {
         Usuario usuarioAVer = BD.GetUsuario(idUsuario);
+        ViewBag.Usuario=usuarioAVer;
         ViewBag.NombreUsuario = usuarioAVer.nombre;
         ViewBag.DireccionUsuario = usuarioAVer.direccion;
         // CORRECCIÓN: Retorna la vista "Perfil"
@@ -121,6 +125,13 @@ public class HomeController : Controller
         ViewBag.BebidasRestriccion = LB;
         return View("restriccion");
    }
+
+   public IActionResult BuscarRestricciones(string busqueda){
+        ViewBag.Restriccion = BD.BusquedaRestricciones(busqueda);
+        return View("restriccion");
+   }
+
+
 
     
 

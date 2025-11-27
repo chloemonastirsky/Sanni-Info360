@@ -9,6 +9,8 @@ public class Plato{
     public bool disponible{get; private set;}
     public int idCategoria{get; private set;}
     public int idRestaurante{get; private set;}
+    public string foto{get; private set;}
+
 
 }
 

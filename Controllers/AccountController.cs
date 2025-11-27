@@ -45,9 +45,10 @@ public class AccountController : Controller
 
 
     public IActionResult CerrarSesion()
-{
-    return RedirectToAction("iniciarSesion", "Account");
-}
+    {
+        HttpContext.Session.Clear();
+        return RedirectToAction("iniciarSesion", "Account");
+    }
 
     public IActionResult CambiarContrasena(string email)
     {
@@ -55,14 +56,16 @@ public class AccountController : Controller
         return RedirectToAction();
     }
 
-    public IActionResult editarPerfil(){
-
+    public IActionResult editarPerfil(int idUsuario){
+        
+        
         return View();
     }
 
-    public IActionResult editarPerfilGuardar(){
+    public IActionResult editarPerfilGuardar(int idUsuario, string nombre, string apellido, string direccion, string email, string contrasena, int telefono){
 
-        return View();
+        BD.editarPerfil(idUsuario, nombre, apellido, direccion, email, contrasena, telefono);
+        return View("Perfil","Home");
     }
 
     
