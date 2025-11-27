@@ -2,7 +2,7 @@
     Layout = "_Layout";
 }
 
-@* 1. Opcional: Mostrar el nombre de la Restricción seleccionada (si GetRestriccionBusqueda devuelve un objeto con la propiedad 'nombre') *@
+@* 1. Encabezado del Restaurante *@
 @if (ViewBag.Restaurante != null)
 {
     <h2>@ViewBag.Restaurante.nombre</h2>
@@ -13,7 +13,7 @@ else
     <h2>Resultados de Restaurante</h2>
 }
 
-
+@* 2. Platos Disponibles *@
 <h3>Platos Disponibles</h3>
 @if (ViewBag.PlatosRestaurante != null && ViewBag.PlatosRestaurante.Count > 0)
 {
@@ -33,9 +33,11 @@ else
 }
 else
 {
-    <p>No se encontraron platos para esta restricción.</p>
+    <p>No se encontraron platos para este restaurante.</p>
 }
 
+@* 3. Bebidas Disponibles *@
+<h3>Bebidas Disponibles</h3>
 @if (ViewBag.BebidasRestaurante != null && ViewBag.BebidasRestaurante.Count > 0)
 {
     @foreach (var b in ViewBag.BebidasRestaurante)
@@ -52,5 +54,52 @@ else
 }
 else
 {
-    <p>No se encontraron bebidas para esta restricción.</p>
+    <p>No se encontraron bebidas para este restaurante.</p>
+}
+
+@* 4. Contenedor HTML del Mapa *@
+@if (ViewBag.Restaurante != null)
+{
+    <h3 class="mt-4">Ubicación de @ViewBag.Restaurante.nombre</h3>
+    <div id="mapa" style="height: 350px; width: 100%; margin-bottom: 20px;"></div>
+}
+
+@* 5. Script de Carga de la API y el Script de Inicialización *@
+@if (ViewBag.Restaurante != null)
+{
+    // Carga de la API (Si no lo tienes en el _Layout)
+    // RECUERDA: Reemplaza TU_API_KEY con tu clave real
+    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
+    
+    // Script de Inicialización (que usa los datos del ViewBag)
+    var lat = (decimal)ViewBag.Restaurante.latitud; 
+    var lng = (decimal)ViewBag.Restaurante.longitud;
+    var nombre = ViewBag.Restaurante.nombre;
+
+    <script>
+        // La función initMap es el callback de la API de Google
+        function initMap() {
+            const restauranteCoords = { 
+                // Los valores C# son inyectados aquí por Razor
+                lat: @lat, 
+                lng: @lng 
+            };
+            
+            const map = new google.maps.Map(document.getElementById("mapa"), {
+                zoom: 16, 
+                center: restauranteCoords,
+            });
+            
+            new google.maps.Marker({
+                position: restauranteCoords,
+                map: map,
+                title: '@nombre' 
+            });
+        }
+        
+        // Llamada directa si el script de la API ya cargó
+        if (typeof google !== 'undefined' && typeof google.maps !== 'undefined') {
+            initMap();
+        }
+    </script>
 }

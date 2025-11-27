@@ -127,7 +127,13 @@ public class HomeController : Controller
    }
 
    public IActionResult BuscarRestricciones(string busqueda){
+        Categoria restriccion = BD.BusquedaRestricciones(busqueda);
+        int idCategoria = restriccion.idCategoria;
         ViewBag.Restriccion = BD.BusquedaRestricciones(busqueda);
+        List<Plato> LP = BD.GetPlatosRestriccion(idCategoria);
+        ViewBag.PlatosRestriccion = LP;
+        List<Bebida> LB = BD.GetBebidasRestriccion(idCategoria);
+        ViewBag.BebidasRestriccion = LB;
         return View("restriccion");
    }
 

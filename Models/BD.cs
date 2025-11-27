@@ -127,7 +127,7 @@ public class BD{
 }
 
 public static List<FavAgregados> GetFavoritos(int idUsuario){
-    
+    //ver pq no funciona
     List<FavAgregados> LFavs;
     using (SqlConnection connection = new SqlConnection(conexion))
     {
@@ -239,4 +239,5 @@ public static Restaurante RecibirApi(){
         return ubicacion;
     }
 }
+
 
