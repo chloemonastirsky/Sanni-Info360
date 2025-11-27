@@ -179,8 +179,8 @@ public static Categoria BusquedaRestricciones(string busqueda){
     {
         string query = "BusquedaRestricciones";
         restriccion = connection.QueryFirstOrDefault<Categoria>(query, new {pbusqueda=busqueda}, commandType : CommandType.StoredProcedure);
-        //HACER SORED PROCEDURE
-} 
+    } 
+    return restriccion;
 }
 
 
@@ -230,11 +230,11 @@ public static void editarPerfil(int idUsuario, string nombre, string apellido, s
     }
 
 }
-public static List<Restaurante> RecibirApi(){
+public static Restaurante RecibirApi(){
         Restaurante ubicacion= new Restaurante();
         string query = "recibirApi";
         using (SqlConnection connection = new SqlConnection(conexion)){
-            ubicacion = connection.Query<Restaurante>(query, new {}, commandType : CommandType.StoredProcedure);
+            ubicacion= connection.QueryFirstOrDefault<Restaurante>(query, new {}, commandType : CommandType.StoredProcedure);
         }
         return ubicacion;
     }
