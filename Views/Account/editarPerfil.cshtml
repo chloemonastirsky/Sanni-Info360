@@ -1,0 +1,46 @@
+<main class="perfil-editar-contenedor">
+
+   <!-- TARJETA DE PERFIL -->
+   <div class="perfil-tarjeta">
+    <div class="perfil-foto-circulo">
+        <img src="imagenes/iconoUsuario.webp" alt="Felipe Cohen">
+    </div>
+    <div class="perfil-nombre-pais">
+        <h2>Felipe Cohen</h2>
+        <p>País: Argentina</p>
+    </div>
+</div>
+
+<form action='Url.Action("editarPerfilGuardar","Account")' method="post">
+
+    <div class="perfil-editar-card">
+        <h6 class="textoInicioSesionRegistro">Nombre</h6>
+        <input type="text" name="nombre" placeholder="Nombre" value="@ViewBag.nombre">
+        <h6 class="textoInicioSesionRegistro">Apellido</h6>        
+        <input type="text" name="apellido" placeholder="Apellido" value="@ViewBag.apellido">
+        <h6 class="textoInicioSesionRegistro">Correo Electronico</h6>        
+        <input type="email" name="email" placeholder="Correo Electronico" value="@ViewBag.email">
+        <h6 class="textoInicioSesionRegistro">Contraseña</h6>        
+        <input type="password" name="contrasena" placeholder="Contraseña" value="@ViewBag.contraseña">
+        <h6 class="textoInicioSesionRegistro">Fecha de Nacimiento</h6>        
+        <input type="date" name="fechaNacimiento">
+        <h6 class="textoInicioSesionRegistro">País</h6>        
+        <select name="pais">
+            <option>Argentina</option> 
+            <option>Brasil</option> 
+            <option>Chile</option> 
+            <option>Paraguay</option> 
+            <option>Uruguay</option> 
+        </select>
+
+        <input type="sumbit" value="Guardar cambios "> <!-- Ver como stylear el input type submit, quizas clase-->
+
+        </form>
+        <a href='Url.Action("verPerfil","Home")'><button class="btn-verde">Guardar cambios</button></a> <!-- No es funcional-->
+        <a href='Url.Action("iniciarSesion","Account")'><button class="perfil-editar-btn-guardar perfil-editar-btn-cancelar">Cerrar Sesion</button></a>
+
+    
+        
+    </div>
+
+</main>

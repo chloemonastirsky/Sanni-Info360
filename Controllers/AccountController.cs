@@ -54,5 +54,16 @@ public class AccountController : Controller
         
         return RedirectToAction();
     }
+
+    public IActionResult editarPerfil(){
+
+        return View();
+    }
+
+    public IActionResult editarPerfilGuardar(){
+
+        return View();
+    }
+
     
 }
