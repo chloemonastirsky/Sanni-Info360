@@ -1,92 +1,136 @@
-<!-- Sección: COMIDAS -->
-            <section id="comidas">
-            <h2>@ViewBag.Restaurante.nombre</h2>
-              <!-- Comida 1 -->
-              <article>
-                <p>Tipo de Comida: @ViewBag.Restaurante.tipoComida</p>
-                <p>Rating: @ViewBag.Restaurante.promedioRating</p>
-                <p>Dirección: @ViewBag.Restaurante.direccion</p>
-              </article>
+@{
+    Layout = "_Layout";
+}
 
-             
+@* 1. Verificar si el objeto Restaurante existe. Si es nulo, no se muestra nada 
+       para evitar el error RuntimeBinderException.
+*@
+@if (ViewBag.Restaurante != null)
+{
+    <div class="vista-rest">
+        
+        @* --- Bloque 1: Cabecera/Información Principal del Restaurante --- *@
+        <header class="cabecera">
+            <h1>@ViewBag.Restaurante.nombre</h1>
+            
+            @* Detalle del Restaurante (tu "Comida 1") *@
+            <div class="info">
+                <p class="tipo">Tipo: <strong>@ViewBag.Restaurante.tipoComida</strong></p>
+                <p class="rating">⭐ Rating: **@ViewBag.Restaurante.promedioRating**</p>
+                <p class="dir">Dirección: @ViewBag.Restaurante.direccion</p>
+            </div>
+        </header>
+        
+        <hr class="divisor">
 
-              <!-- Comida 2 -->
-              <article>
-              <h2>Platos</h2>
-            @foreach (var p in ViewBag.PlatosRestaurante)
+        @* --- Bloque 2: Menú de Platos --- *@
+        <section id="comidas" class="seccion">
+            <h2>Platos</h2>
+            
+            @if (ViewBag.PlatosRestaurante != null && ViewBag.PlatosRestaurante.Count > 0)
             {
-                <h4>@p.nombre</h4>
-                <p>@p.descripcion</p>
-                <p>@p.precio</p>
-                <a class="btn btn-primary" href='@Url.Action("verPlato", "Home", new {idPlato= p.idPlato})'> Ver Plato </a>
+                <div class="lista">
+                    @foreach (var p in ViewBag.PlatosRestaurante)
+                    {
+                        <article class="item">
+                            <h4 class="nombre">@p.nombre</h4>
+                            <p class="desc">@p.descripcion</p>
+                            <p class="precio">$@p.precio</p>
+                            <a class="boton" href='@Url.Action("verPlato", "Home", new {idPlato= p.idPlato})'> Ver Plato </a>
+                        </article>
+                    }
+                </div>
             }
-              </article>
-
-            <li><hr class="divider"></li>
-          
-          
-            <section id="promos">
-              <h2>Promos</h2>
-            @foreach (var p in ViewBag.Promos)
+            else
             {
-                <h4>@p.nombre</h4>
-                <p>@p.descuento</p>
-                <p>@p.fechaIncio</p>
-                <p>@p.fechaFin</p>
-                <a class="btn btn-primary" href='@Url.Action("verPlato", "Home", new {idPlato= p.idPlato})'> Ver Promo </a>
+                <p class="vacio">Este restaurante no tiene platos listados.</p>
             }
-            </section>
-          
-            <li><hr class="divider"></li>
-          
-            <!-- Sección: DESTACADOS -->
-            <section id="destacados">
-              <h2>Destacados CARRUSEL</h2>
-          
-              
+        </section>
 
-            <li><hr class="divider"></li>
-          
-          
-            <section id="favoritos">
-              <h2>Tus Favoritos</h2>
-          
-              <!-- Favorito 1 -->
-              <article>
-                <img src="" alt="">
-                <h3>x</h3>
-                <p>x</p>
-                <div>x</div>
-              </article>
-          
-              <!-- Favorito 2 -->
-              <article>
-                <img src="" alt="">
-                <h3>x</h3>
-                <p>x</p>
-                <div>x</div>
-              </article>
-            </section>
+        <hr class="divisor">
 
-            <li><hr class="divider"></li>
-          
-          
-            <!-- Sección: BEBIDAS -->
-            <section id="bebidas">
-              <h2>Bebidas</h2>
-          
-              <!-- Bebida 1 -->
-              <article>
-                @foreach (var b in ViewBag.BebidasRestaurante)
+        @* --- Bloque 3: Promociones --- *@
+        <section id="promos" class="seccion">
+            <h2>Promos</h2>
+            
+            @if (ViewBag.Promos != null && ViewBag.Promos.Count > 0)
             {
-                <p>@b.nombre</p>
-                <p>@b.descripcion</p>
-                 <a class="btn btn-primary" href='@Url.Action("verBebida", "Home", new {idBebida= b.idBebida})'> Ver Bebida </a>
+                <div class="lista">
+                    @foreach (var p in ViewBag.Promos)
+                    {
+                        @* Nota: Asume que tienes un objeto Promo con idPromocion para enlazar * @
+                        <article class="item">
+                            <h4 class="nombre">@p.nombre</h4>
+                            <p class="desc">Descuento: @p.descuento%</p>
+                            <p class="fechas">Vigencia: @p.fechaIncio - @p.fechaFin</p>
+                            @* **IMPORTANTE:** Si la Promo no tiene idPlato, usa idPromocion aquí. * @
+                            <a class="boton" href='@Url.Action("verPromo", "Home", new { idPromocion = p.idPromocion })'> Ver Promo </a>
+                        </article>
+                    }
+                </div>
             }
-              </article>
+            else
+            {
+                 <p class="vacio">No hay promociones activas.</p>
+            }
+        </section>
 
-            <li><hr class="divider"></li>
-          
-          
-              </article>
-            </section>
+        <hr class="divisor">
+
+        @* --- Bloque 4: Bebidas --- *@
+        <section id="bebidas" class="seccion">
+            <h2>Bebidas</h2>
+            
+            @if (ViewBag.BebidasRestaurante != null && ViewBag.BebidasRestaurante.Count > 0)
+            {
+                <div class="lista">
+                    @foreach (var b in ViewBag.BebidasRestaurante)
+                    {
+                        <article class="item">
+                            <h4 class="nombre">@b.nombre</h4>
+                            <p class="desc">@b.descripcion</p>
+                            <a class="boton" href='@Url.Action("verBebida", "Home", new {idBebida= b.idBebida})'> Ver Bebida </a>
+                        </article>
+                    }
+                </div>
+            }
+            else
+            {
+                 <p class="vacio">No hay bebidas listadas.</p>
+            }
+        </section>
+        
+        <hr class="divisor">
+
+        @* --- Bloque 5: Destacados y Favoritos (Estructuras de ejemplo) --- *@
+        <section id="destacados" class="seccion">
+            <h2>Destacados CARRUSEL</h2>
+            <div class="carrusel">
+                <p>Aquí va el carrusel de platos destacados...</p>
+            </div>
+        </section>
+        
+        <hr class="divisor">
+        
+        <section id="favoritos" class="seccion">
+            <h2>Tus Favoritos</h2>
+            <div class="lista">
+                @* Estructuras vacías para que las rellenes con tu foreach de Favoritos *@
+                <article class="item fav-item">
+                    <img src="" alt="" class="img">
+                    <h4 class="nombre">Plato Favorito X</h4>
+                    <p class="desc">Descripción corta</p>
+                    <div class="tags">Etiquetas</div>
+                </article>
+            </div>
+        </section>
+
+    </div>
+}
+else
+{
+    <div class="alerta">
+        <h1>Restaurante No Encontrado 🔎</h1>
+        <p>Lo sentimos, no pudimos cargar la información de este restaurante.</p>
+    </div>
+}
