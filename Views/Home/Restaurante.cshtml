@@ -65,85 +65,85 @@ else
 }
 
 <script>
-  let map;
-  let markers = [];
-
-  const ubicaciones = @Html.Raw(ViewBag.Restaurante);
-
-  window.initMap = function () {
-    map = new google.maps.Map(document.getElementById("map"), {
-      center: { lat: -34.6089, lng: -58.4311 },
-      zoom: 13,
-    });
-
-    cargarMarcadores(ubicaciones);
-
-    // 🔥 AGREGADO — escuchar cambios en los radios
-    document.querySelectorAll('.donar-panel input[type="radio"]').forEach(r => {
-        r.addEventListener("change", () => {
-            filtrarUbicaciones(r.id);
+    let map;
+    let markers = [];
+    
+    // 1. OBTENER TODOS LOS RESTAURANTES DE LA VISTA
+    // Asegúrate de que ViewBag.RestaurantesJson contenga una lista COMPLETA
+    // de objetos { nombre, latitud, longitud, tipoComida (o idCategoria) }
+    const todosLosRestaurantes = @Html.Raw(ViewBag.RestaurantesJson); 
+    
+    // Si estás en una vista de listado o mapa general, puedes centrar en CABA.
+    // Si es la vista de un solo restaurante, centrar en él (como en el Escenario A anterior).
+    window.initMap = function () {
+        map = new google.maps.Map(document.getElementById("mapa"), { // Asegúrate de que el ID del div es 'mapa'
+            center: { lat: -34.6089, lng: -58.4311 }, // Centro en CABA
+            zoom: 13,
         });
-    });
-  };
 
-  function cargarMarcadores(lista) {
-    markers.forEach(m => m.setMap(null));
-    markers = [];
+        // 2. Cargar todos los marcadores al inicio
+        cargarMarcadores(todosLosRestaurantes);
 
-    lista.forEach(u => {
-      const marker = new google.maps.Marker({
-        position: { lat: u.latitud, lng: u.longitud },
-        map,
-        title: u.titulo,
-        icon: {
-          path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-          scale: 5,
-          strokeColor: "#0112EB",
-          rotation: 180 
-        }
-      });
-
-      markers.push(marker);
-    });
-  }
-
-function filtrarUbicaciones(categoria) {
-
-    fetch(`/Home/FiltrarUbicaciones?categoria=${categoria}`)
-      .then(r => r.json())
-      .then(data => {
-          cargarMarcadores(data);
-
-          // 🔥 NUEVO: también actualizamos el panel
-          fetch(`/Home/FiltrarCampanas?categoria=${categoria}`)
-            .then(r => r.json())
-            .then(listaCampanas => {
-                actualizarPanelCampanas(listaCampanas);
+        // 3. AGREGADO — escuchar cambios en los radios
+        document.querySelectorAll('.donar-panel input[type="radio"]').forEach(r => {
+            r.addEventListener("change", () => {
+                // 4. Llamar a la función de filtrado con el valor del radio (ej: 'Vegano' o '3')
+                filtrarUbicaciones(r.value); 
             });
-      });
-}
-  function actualizarPanelCampanas(lista) {
-    const contenedor = document.querySelector(".donar-panel-campana");
+        });
+    };
 
-    contenedor.innerHTML = `
-        <h2>Campañas</h2>
-    `;
+    function cargarMarcadores(lista) {
+        // Limpiar marcadores existentes del mapa
+        markers.forEach(m => m.setMap(null));
+        markers = [];
 
-    if (lista.length === 0) {
-        contenedor.innerHTML += `<p>No hay campañas para esta categoría.</p>`;
-        return;
+        lista.forEach(u => {
+            const marker = new google.maps.Marker({
+                // Usamos las propiedades correctas de tu modelo
+                position: { lat: u.latitud, lng: u.longitud },
+                map,
+                title: u.nombre, 
+                icon: {
+                    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                    scale: 5,
+                    strokeColor: "#0112EB",
+                    rotation: 180 
+                }
+            });
+
+            markers.push(marker);
+        });
     }
 
-    lista.forEach(item => {
-        contenedor.innerHTML += `
-            <div class="campana-item">
-                <p>${item.titulo}</p>
-                <a class="btn-vermas btn-vermas-campana" href="/Home/ViewCampana">Ver Mas</a>
-            </div>
-        `;
-    });
-}
-</script>
+    /**
+     * Filtra la lista de restaurantes que ya tenemos en memoria.
+     *  {string} filtroValor - El valor por el que filtrar (ej: 'Vegano', 'Bowl', o un ID)
+     */
+    function filtrarUbicaciones(filtroValor) {
+        let listaFiltrada;
 
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHo2Nt4gu8COeh6PahmHc-QGsDPkzWWjs&callback=initMap"></script>
+        // Si el valor es 'todos' o está vacío, mostramos la lista completa.
+        if (filtroValor === 'todos' || !filtroValor) {
+            listaFiltrada = todosLosRestaurantes;
+        } else {
+            // Filtrado basado en el valor. Ajusta la propiedad de tu objeto (u.tipoComida o u.idCategoria)
+            // Aquí asumo que quieres filtrar por la propiedad 'tipoComida' o 'idCategoria' del objeto Restaurante.
+            listaFiltrada = todosLosRestaurantes.filter(u => 
+                u.tipoComida.toLowerCase() === filtroValor.toLowerCase() // Ejemplo 1: Filtrar por el campo 'tipoComida'
+                // O si usas idCategoria: u.idCategoria.toString() === filtroValor 
+            );
+        }
+
+        // 5. Cargar los marcadores filtrados en el mapa
+        cargarMarcadores(listaFiltrada);
+
+        // 6. Si tenías la función para actualizar otro panel (Campañas/Platos)
+        // Puedes implementar la lógica de filtrado del otro panel aquí mismo.
+        // actualizarPanel(listaFiltrada); 
+    }
+    
+    // ... (Tu función actualizarPanelCampanas si todavía la necesitas) ...
+</script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"></script>
 }
