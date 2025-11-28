@@ -64,42 +64,86 @@ else
     <div id="mapa" style="height: 350px; width: 100%; margin-bottom: 20px;"></div>
 }
 
-@* 5. Script de Carga de la API y el Script de Inicialización *@
-@if (ViewBag.Restaurante != null)
-{
-    // Carga de la API (Si no lo tienes en el _Layout)
-    // RECUERDA: Reemplaza TU_API_KEY con tu clave real
-    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
-    
-    // Script de Inicialización (que usa los datos del ViewBag)
-    var lat = (decimal)ViewBag.Restaurante.latitud; 
-    var lng = (decimal)ViewBag.Restaurante.longitud;
-    var nombre = ViewBag.Restaurante.nombre;
+<script>
+  let map;
+  let markers = [];
 
-    <script>
-        // La función initMap es el callback de la API de Google
-        function initMap() {
-            const restauranteCoords = { 
-                // Los valores C# son inyectados aquí por Razor
-                lat: @lat, 
-                lng: @lng 
-            };
-            
-            const map = new google.maps.Map(document.getElementById("mapa"), {
-                zoom: 16, 
-                center: restauranteCoords,
-            });
-            
-            new google.maps.Marker({
-                position: restauranteCoords,
-                map: map,
-                title: '@nombre' 
-            });
+  const ubicaciones = @Html.Raw(ViewBag.Restaurante);
+
+  window.initMap = function () {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: -34.6089, lng: -58.4311 },
+      zoom: 13,
+    });
+
+    cargarMarcadores(ubicaciones);
+
+    // 🔥 AGREGADO — escuchar cambios en los radios
+    document.querySelectorAll('.donar-panel input[type="radio"]').forEach(r => {
+        r.addEventListener("change", () => {
+            filtrarUbicaciones(r.id);
+        });
+    });
+  };
+
+  function cargarMarcadores(lista) {
+    markers.forEach(m => m.setMap(null));
+    markers = [];
+
+    lista.forEach(u => {
+      const marker = new google.maps.Marker({
+        position: { lat: u.latitud, lng: u.longitud },
+        map,
+        title: u.titulo,
+        icon: {
+          path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+          scale: 5,
+          strokeColor: "#0112EB",
+          rotation: 180 
         }
-        
-        // Llamada directa si el script de la API ya cargó
-        if (typeof google !== 'undefined' && typeof google.maps !== 'undefined') {
-            initMap();
-        }
-    </script>
+      });
+
+      markers.push(marker);
+    });
+  }
+
+function filtrarUbicaciones(categoria) {
+
+    fetch(`/Home/FiltrarUbicaciones?categoria=${categoria}`)
+      .then(r => r.json())
+      .then(data => {
+          cargarMarcadores(data);
+
+          // 🔥 NUEVO: también actualizamos el panel
+          fetch(`/Home/FiltrarCampanas?categoria=${categoria}`)
+            .then(r => r.json())
+            .then(listaCampanas => {
+                actualizarPanelCampanas(listaCampanas);
+            });
+      });
+}
+  function actualizarPanelCampanas(lista) {
+    const contenedor = document.querySelector(".donar-panel-campana");
+
+    contenedor.innerHTML = `
+        <h2>Campañas</h2>
+    `;
+
+    if (lista.length === 0) {
+        contenedor.innerHTML += `<p>No hay campañas para esta categoría.</p>`;
+        return;
+    }
+
+    lista.forEach(item => {
+        contenedor.innerHTML += `
+            <div class="campana-item">
+                <p>${item.titulo}</p>
+                <a class="btn-vermas btn-vermas-campana" href="/Home/ViewCampana">Ver Mas</a>
+            </div>
+        `;
+    });
+}
+</script>
+
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHo2Nt4gu8COeh6PahmHc-QGsDPkzWWjs&callback=initMap"></script>
 }

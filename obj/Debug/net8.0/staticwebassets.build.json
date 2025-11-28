@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MsYyQIrXZvXMx1RVkx4HC6TgfZPLV1s9FQ40wC0fQus=",
+  "Hash": "l7/sr9pIWF3i2n//PCJW0bzsK7gJ0mScSSx86mHa5uM=",
   "Source": "Sanni",
   "BasePath": "_content/Sanni",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Sanni\\wwwroot",
       "Source": "Sanni",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\css\\site.css",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\favicon.ico",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\iconoCarrito.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoCarrito.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/iconoCarrito.png",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\iconoCarrito.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\iconoInstagram.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoInstagram.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/iconoInstagram.png",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\iconoInstagram.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\iconoLupa.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoLupa.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/iconoLupa.png",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\iconoLupa.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\iconoMenu.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoMenu.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/iconoMenu.png",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\iconoMenu.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\iconoUsuario.webp",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoUsuario.webp",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/iconoUsuario.webp",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\iconoUsuario.webp"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\iconoX.webp",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\iconoX.webp",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/iconoX.webp",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\iconoX.webp"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\ig.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\ig.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/ig.png",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\ig.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\logo simplificado editado.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\logo simplificado editado.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/logo simplificado editado.png",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\logo simplificado editado.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\LOGO SIMPLIFICADO SANNI.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\LOGO SIMPLIFICADO SANNI.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/LOGO SIMPLIFICADO SANNI.png",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\LOGO SIMPLIFICADO SANNI.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\LOGO TERMINADO SANNI LISTO.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\LOGO TERMINADO SANNI LISTO.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/LOGO TERMINADO SANNI LISTO.png",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\LOGO TERMINADO SANNI LISTO.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\telefono.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\telefono.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/telefono.png",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\telefono.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\tt.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\tt.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/tt.png",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\tt.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\w editada.jpg",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\w editada.jpg",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/w editada.jpg",
       "AssetKind": "All",
@@ -302,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\w editada.jpg"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\imagenes\\x.png",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\imagenes\\x.png",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "imagenes/x.png",
       "AssetKind": "All",
@@ -321,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\x.png"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\js\\script.js",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\js\\script.js",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "js/script.js",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -359,10 +359,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -378,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -397,10 +397,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -416,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -435,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -454,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -473,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -492,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -511,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -530,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -549,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "Sanni",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\chloe\\Sanni-Info360\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\49552251\\Sanni-Info360-1\\wwwroot\\",
       "BasePath": "_content/Sanni",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
