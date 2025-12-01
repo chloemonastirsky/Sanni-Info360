@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\49552251\\Downloads\\Sanni-Info360\\Sanni.csproj": {}
+    "C:\\Users\\49552251\\Sanni-Info360\\Sanni.csproj": {}
   },
   "projects": {
-    "C:\\Users\\49552251\\Downloads\\Sanni-Info360\\Sanni.csproj": {
+    "C:\\Users\\49552251\\Sanni-Info360\\Sanni.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\49552251\\Downloads\\Sanni-Info360\\Sanni.csproj",
+        "projectUniqueName": "C:\\Users\\49552251\\Sanni-Info360\\Sanni.csproj",
         "projectName": "Sanni",
-        "projectPath": "C:\\Users\\49552251\\Downloads\\Sanni-Info360\\Sanni.csproj",
+        "projectPath": "C:\\Users\\49552251\\Sanni-Info360\\Sanni.csproj",
         "packagesPath": "C:\\Users\\49552251\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\49552251\\Downloads\\Sanni-Info360\\obj\\",
+        "outputPath": "C:\\Users\\49552251\\Sanni-Info360\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

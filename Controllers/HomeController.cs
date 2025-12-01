@@ -100,22 +100,12 @@ public class HomeController : Controller
 
     public IActionResult verPerfil(int idUsuario)
     {
-        Usuario usuarioAVer = BD.GetUsuario(idUsuario);
-        ViewBag.Usuario=usuarioAVer;
-        ViewBag.NombreUsuario = usuarioAVer.nombre;
-        ViewBag.DireccionUsuario = usuarioAVer.direccion;
+         
+        ViewBag.Usuario=BD.GetUsuario(idUsuario);
         // CORRECCIÓN: Retorna la vista "Perfil"
         return View("Perfil");
     }
 
-    public IActionResult verInfoUsuario(int idUsuario)
-    {
-        Usuario usuarioAVer = BD.GetUsuario(idUsuario);
-        ViewBag.InfoUsuario = usuarioAVer;
-         return View("Perfil");
-    }
-
-    
 
    public IActionResult verRestriccion(int idCategoria){
         ViewBag.Restriccion = BD.GetRestriccionBusqueda(idCategoria);

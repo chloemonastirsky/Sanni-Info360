@@ -1,22 +1,66 @@
-﻿<h1 class="titulo">Somos SANNI</h1>
-<h3>Sanni es salud, inclusión y sabor en cada opcion. Comidas adaptadas a tu dieta, con ingredientes reales para que siempre encuentres tu mejor opcion.</h3>
+﻿<main class="index-content">
+    
+    <section class="hero-sanni">
+        <h1 class="titulo">Somos SANNI</h1>
+        <h3>
+            Sanni es salud, inclusión y sabor en cada opción. Comidas adaptadas a tu dieta, 
+            con ingredientes reales para que siempre encuentres tu mejor opción.
+        </h3>
+	 <h3>
+Rapido y sabroso, siempre sano y delicioso.
+        </h3>
+        
+        <div class="hero-actions">
+            <a href='@Url.Action("Login","Account")' class="btn-primary-sanni">
+                <button>Iniciar Sesión</button>
+            </a>
+        </div>
+    </section>
+    
+    <hr>
+    
+    <section class="seccion-destacada">
+        <h2 class="ofertones">🔥 Ofertones Destacados</h2>
+        <h5>¡No te pierdas nuestras mejores ofertas y beneficios del día!</h5>
+        
+        <div class="contenedor-carrusel">
+            <p class="placeholder-carrusel">Probar Carrusel de grandes ofertas aquí...</p>
+        </div>
+    </section>
 
-<a href='@Url.Action("Login","Account")'><button>Iniciar Sesion</button></a>
+    <hr>
 
-<h2 class="ofertones">Ofertones</h2>
-<!-- Probar Carrusel en un html> -->
+    <section class="seccion-acceso-rapido">
+        
+        <h2 class="promociones">🌟 Los Más Elegidos</h2>
+        <h5>Restaurantes y platos que nuestros usuarios prefieren.</h5>
 
-<a href='@Url.Action("verRestricciones", "Home")'><button>Restricciones</button></a>
-<a href='@Url.Action("verRestaurantes", "Home")'><button>Restaurantes</button></a>
-<h5>Los más elegidos</h5>
-<!-- Probar Carrusel de a 3 imagenes en un html> -->
+        <div class="contenedor-carrusel">
+            <p class="placeholder-carrusel">Probar Carrusel de 3 Restaurantes/Platos aquí...</p>
+        </div>
+        
+        <h2 class="subtitulo-seccion">Explora Sanni</h2>
+        
+        <div class="acciones-nav-sanni">
+            <a href='@Url.Action("verRestricciones", "Home")' class="btn-secundario-sanni">
+                <button>Ver Restricciones</button>
+            </a>
+            <a href='@Url.Action("verRestaurantes", "Home")' class="btn-secundario-sanni">
+                <button>Ver Restaurantes</button>
+            </a>
+        </div>
+    </section>
+    
+    <hr>
 
-<h2 class="promociones">PROMOCIONES</h2>
-<h5>Nuestras mejores Ofertas y Beneficios</h5>
-<!-- Probar Carrusel de a 3 imagenes en un html> -->
+    <section class="seccion-restricciones">
+        <h2 class="promociones">💚 Para Todos</h2>
+        <h3>En SANNI pensamos en todas las Restricciones y Dietas</h3>
+        
+        <div class="layout-dietas">
+            <p class="placeholder-dietas">Aquí va la grilla de logos de dietas (Keto, Sin TACC, Vegano, etc.)</p>
+            
+        </div>
+    </section>
 
-<h3>En SANNI pensamos en todas las Restricciones y Dietas</h3>
-<!-- Hacer un layout de 3x3 y sumar logo de dietas keto tanto al figma como aca -->
-
-
-
+</main>
