@@ -67,6 +67,22 @@ margin-top: 5px;
   width: 100%;
 }
 
+.fotoResto {
+
+  margin-left:100px ;
+  /* Define un ancho fijo. Por ejemplo, 150 píxeles. */
+  width: 150px;
+
+  /* Define una altura fija, o usa 'auto' para mantener la proporción. */
+  height: 150px;
+
+  /* Opcional: Para asegurar que la imagen se vea bien dentro de las dimensiones */
+  object-fit: cover;
+
+  /* Opcional: Para que sea un cuadrado perfecto (si width y height son iguales) */
+  border-radius: 2px;
+}
+
 
 .logo {
   width: 100px;
@@ -923,6 +939,8 @@ hr {
   color: #388E3C;
   font-weight: 500;
 }
+
+
 
 
 /* --- MEDIA QUERIES PARA RESPONSIVE (MÓVIL) --- */

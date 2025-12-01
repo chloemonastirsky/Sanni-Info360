@@ -1,66 +1,69 @@
-﻿<main class="index-content">
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Title = "SANNI - Salud, Inclusión y Sabor"; // Título para la página
+}
+
+<main class="index-content">
     
-    <section class="hero-sanni">
-        <h1 class="titulo">Somos SANNI</h1>
-        <h3>
+    <section class="hero-sanni text-center p-5 mb-4" style="background-color: #f8f9fa;">
+        <h1 class="titulo display-4 fw-bold mb-3" style="color: #4CAF50;">Somos SANNI 💚</h1>
+        <h3 class="fs-5 mb-3">
             Sanni es salud, inclusión y sabor en cada opción. Comidas adaptadas a tu dieta, 
             con ingredientes reales para que siempre encuentres tu mejor opción.
         </h3>
-	 <h3>
-Rapido y sabroso, siempre sano y delicioso.
+        <h3 class="fs-4 fw-light mb-4">
+            Rápido y sabroso, siempre sano y delicioso.
         </h3>
         
-        <div class="hero-actions">
-            <a href='@Url.Action("Login","Account")' class="btn-primary-sanni">
-                <button>Iniciar Sesión</button>
+        <div class="hero-actions mt-4">
+            <a href='@Url.Action("Login","Account")' class="btn-primary-sanni text-decoration-none">
+                <button class="btn btn-lg fw-bold px-5 py-3 rounded-pill shadow" 
+                        style="background-color: #FFC107; color: #212529; border: none;">
+                    Iniciar Sesión
+                </button>
             </a>
         </div>
     </section>
     
-    <hr>
+    <hr class="my-5">
     
-    <section class="seccion-destacada">
-        <h2 class="ofertones">🔥 Ofertones Destacados</h2>
-        <h5>¡No te pierdas nuestras mejores ofertas y beneficios del día!</h5>
+    <section class="seccion-destacada container mb-5">
+        <h2 class="ofertones fw-bold mb-2" style="color: #FFC107;">🔥 Ofertones Destacados</h2>
+        <h5 class="text-muted mb-4">¡No te pierdas nuestras mejores ofertas y beneficios del día!</h5>
         
-        <div class="contenedor-carrusel">
-            <p class="placeholder-carrusel">Probar Carrusel de grandes ofertas aquí...</p>
+        <div class="contenedor-carrusel bg-light p-5 rounded-3 border">
+            <p class="placeholder-carrusel text-center text-muted fst-italic">
+                [Aquí se implementaría el Carrusel de grandes ofertas...]
+            </p>
         </div>
     </section>
 
-    <hr>
+    <hr class="my-5">
 
-    <section class="seccion-acceso-rapido">
-        
-        <h2 class="promociones">🌟 Los Más Elegidos</h2>
-        <h5>Restaurantes y platos que nuestros usuarios prefieren.</h5>
-
-        <div class="contenedor-carrusel">
-            <p class="placeholder-carrusel">Probar Carrusel de 3 Restaurantes/Platos aquí...</p>
-        </div>
-        
-        <h2 class="subtitulo-seccion">Explora Sanni</h2>
-        
-        <div class="acciones-nav-sanni">
-            <a href='@Url.Action("verRestricciones", "Home")' class="btn-secundario-sanni">
-                <button>Ver Restricciones</button>
-            </a>
-            <a href='@Url.Action("verRestaurantes", "Home")' class="btn-secundario-sanni">
-                <button>Ver Restaurantes</button>
-            </a>
-        </div>
-    </section>
+<section class="acceso-rapido-promos container text-center my-5 p-4 rounded-3 shadow-lg" style="background-color: #f7fff7; border: 1px solid #d4edda;">
     
-    <hr>
-
-    <section class="seccion-restricciones">
-        <h2 class="promociones">💚 Para Todos</h2>
-        <h3>En SANNI pensamos en todas las Restricciones y Dietas</h3>
+    <h2 class="subtitulo-seccion fw-bold mb-4" style="color: #28a745;">Explora SANNI</h2>
+    
+    <div class="acciones-nav-sanni d-flex justify-content-center gap-4 mb-5">
         
-        <div class="layout-dietas">
-            <p class="placeholder-dietas">Aquí va la grilla de logos de dietas (Keto, Sin TACC, Vegano, etc.)</p>
-            
-        </div>
-    </section>
+        <a href='@Url.Action("verRestricciones", "Home")' class="text-decoration-none">
+            <button class="btn btn-lg fw-bold px-5 py-3 rounded-pill shadow-sm" 
+                    style="background-color: #4CAF50; color: white; border: none; transition: all 0.3s;">
+                Restricciones
+            </button>
+        </a>
+        
+        <a href='@Url.Action("verRestaurantes", "Home")' class="text-decoration-none">
+            <button class="btn btn-lg fw-bold px-5 py-3 rounded-pill shadow-sm"
+                    style="background-color: #4CAF50; color: white; border: none; transition: all 0.3s;">
+                Restaurantes
+            </button>
+        </a>
+    </div>
 
-</main>
+    <hr class="my-5">
+    
+</section>
+
+
+
