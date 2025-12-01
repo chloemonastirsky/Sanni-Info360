@@ -44,21 +44,14 @@
             </div>
         </div>
 
-        <div class="row justify-content-center mb-5">
-            <div class="col-lg-8 col-md-10 d-flex justify-content-around">
-                <a href="#" class="btn btn-sm btn-success rounded-pill">Comidas</a>
-                <a href="#" class="btn btn-sm btn-success rounded-pill">Favoritos</a>
-                <a href="#" class="btn btn-sm btn-success rounded-pill">Promos</a>
-                <a href="#" class="btn btn-sm btn-success rounded-pill">Destacados</a>
-            </div>
-        </div>
+        
 
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10">
                 <div class="card p-3 p-md-4 shadow-lg border-0">
                     <div class="text-center">
                         
-                        <img class = "fotoPlato" src="/imagenes/@ViewBag.Plato.foto" />
+                        <img class = "fotoResto" src="/imagenes/@ViewBag.Plato.foto" alt="@ViewBag.Plato.nombre" />
                         <h2 class="fw-bold mt-3" style="color: #4CAF50;">@plato.nombre</h2>
                         
                         @* Iconos de restricción: Apto Vegano, Sin TACC, etc. (ajusta según tus reglas) *@

@@ -76,7 +76,9 @@ public class HomeController : Controller
 
     public IActionResult verFavoritos(int idUsuario)
     {
-        List<FavAgregados> LFavs = BD.GetFavoritos(idUsuario);
+        string stringIdUsuario= HttpContext.Session.GetString("IdUsuario");
+        int IdUsuario=int.Parse(stringIdUsuario);   
+        List<FavAgregados> LFavs = BD.GetFavoritos(IdUsuario);
         ViewBag.Favoritos = LFavs;
         return View("favoritos");
     }
@@ -91,7 +93,9 @@ public class HomeController : Controller
 
     public IActionResult verNotificaciones(int idUsuario)
     {
-        List<NotificacionesUsuario> LNotis = BD.GetNotificacionesUsuario(idUsuario);
+        string stringIdUsuario= HttpContext.Session.GetString("IdUsuario");
+        int IdUsuario=int.Parse(stringIdUsuario);
+        List<NotificacionesUsuario> LNotis = BD.GetNotificacionesUsuario(IdUsuario);
         ViewBag.NotificacionesUsuario = LNotis;
         // CORRECCIÓN: Retorna la vista "notificaciones"
         return View("notificaciones");
@@ -100,8 +104,9 @@ public class HomeController : Controller
 
     public IActionResult verPerfil(int idUsuario)
     {
-         
-        ViewBag.Usuario=BD.GetUsuario(idUsuario);
+        string stringIdUsuario= HttpContext.Session.GetString("IdUsuario");
+        int IdUsuario=int.Parse(stringIdUsuario);
+        ViewBag.Usuario=BD.GetUsuario(IdUsuario);
         // CORRECCIÓN: Retorna la vista "Perfil"
         return View("Perfil");
     }
