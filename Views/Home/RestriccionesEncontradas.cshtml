@@ -51,7 +51,7 @@
                     <div class="card-plato">
                         <h4>@plato.nombre</h4>
                         <p class="precio">$@plato.precio</p>
-                        <a href="#" class="btn-agregar">Añadir</a>
+                        <a href='@Url.Action("verPlato", "Home", new {idPlato= plato.idPlato})' class="btn-agregar">Ver plato</a>
                     </div>
                 }
             </div>

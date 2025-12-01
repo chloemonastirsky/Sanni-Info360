@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s7gChYlsGbg1QSIZyuqKDngJbCXy65lf3outXuygrwY=",
+  "Hash": "odv93FsWg7d2esQv9uUdtV0G/CZL845iECho4KSiC+8=",
   "Source": "Sanni",
   "BasePath": "_content/Sanni",
   "Mode": "Default",
@@ -870,25 +870,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
-    },
-    {
-      "Identity": "C:\\Users\\49552251\\Downloads\\Sanni-Info360\\wwwroot\\SANNIBD.sql",
-      "SourceId": "Sanni",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\49552251\\Downloads\\Sanni-Info360\\wwwroot\\",
-      "BasePath": "_content/Sanni",
-      "RelativePath": "SANNIBD.sql",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\SANNIBD.sql"
     }
   ]
 }

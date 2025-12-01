@@ -64,86 +64,71 @@ else
     <div id="mapa" style="height: 350px; width: 100%; margin-bottom: 20px;"></div>
 }
 
+<div id="map" style="height: 400px; width: 100%;"></div>
+
 <script>
+    // ✅ 1. Obtenemos el objeto de un solo restaurante desde el ViewBag.
+    // Asumimos que ViewBag.Restaurante es un objeto con propiedades 'latitud', 'longitud' y 'nombre'.
+    const restaurante = @Html.Raw(ViewBag.Restaurante); 
+    
     let map;
-    let markers = [];
-    
-    // 1. OBTENER TODOS LOS RESTAURANTES DE LA VISTA
-    // Asegúrate de que ViewBag.RestaurantesJson contenga una lista COMPLETA
-    // de objetos { nombre, latitud, longitud, tipoComida (o idCategoria) }
-    const todosLosRestaurantes = @Html.Raw(ViewBag.RestaurantesJson); 
-    
-    // Si estás en una vista de listado o mapa general, puedes centrar en CABA.
-    // Si es la vista de un solo restaurante, centrar en él (como en el Escenario A anterior).
+
     window.initMap = function () {
-        map = new google.maps.Map(document.getElementById("mapa"), { // Asegúrate de que el ID del div es 'mapa'
-            center: { lat: -34.6089, lng: -58.4311 }, // Centro en CABA
-            zoom: 13,
-        });
-
-        // 2. Cargar todos los marcadores al inicio
-        cargarMarcadores(todosLosRestaurantes);
-
-        // 3. AGREGADO — escuchar cambios en los radios
-        document.querySelectorAll('.donar-panel input[type="radio"]').forEach(r => {
-            r.addEventListener("change", () => {
-                // 4. Llamar a la función de filtrado con el valor del radio (ej: 'Vegano' o '3')
-                filtrarUbicaciones(r.value); 
-            });
-        });
-    };
-
-    function cargarMarcadores(lista) {
-        // Limpiar marcadores existentes del mapa
-        markers.forEach(m => m.setMap(null));
-        markers = [];
-
-        lista.forEach(u => {
-            const marker = new google.maps.Marker({
-                // Usamos las propiedades correctas de tu modelo
-                position: { lat: u.latitud, lng: u.longitud },
-                map,
-                title: u.nombre, 
-                icon: {
-                    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-                    scale: 5,
-                    strokeColor: "#0112EB",
-                    rotation: 180 
-                }
-            });
-
-            markers.push(marker);
-        });
-    }
-
-    /**
-     * Filtra la lista de restaurantes que ya tenemos en memoria.
-     *  {string} filtroValor - El valor por el que filtrar (ej: 'Vegano', 'Bowl', o un ID)
-     */
-    function filtrarUbicaciones(filtroValor) {
-        let listaFiltrada;
-
-        // Si el valor es 'todos' o está vacío, mostramos la lista completa.
-        if (filtroValor === 'todos' || !filtroValor) {
-            listaFiltrada = todosLosRestaurantes;
-        } else {
-            // Filtrado basado en el valor. Ajusta la propiedad de tu objeto (u.tipoComida o u.idCategoria)
-            // Aquí asumo que quieres filtrar por la propiedad 'tipoComida' o 'idCategoria' del objeto Restaurante.
-            listaFiltrada = todosLosRestaurantes.filter(u => 
-                u.tipoComida.toLowerCase() === filtroValor.toLowerCase() // Ejemplo 1: Filtrar por el campo 'tipoComida'
-                // O si usas idCategoria: u.idCategoria.toString() === filtroValor 
-            );
+        
+        // Verificación básica de que los datos existen y son válidos
+        if (!restaurante || !restaurante.latitud || !restaurante.longitud) {
+            console.error("Error: No se encontraron datos de latitud/longitud del restaurante.");
+            document.getElementById("map").innerHTML = "<p>Ubicación no disponible.</p>";
+            return;
         }
 
-        // 5. Cargar los marcadores filtrados en el mapa
-        cargarMarcadores(listaFiltrada);
+        const ubicacion = { lat: restaurante.latitud, lng: restaurante.longitud };
 
-        // 6. Si tenías la función para actualizar otro panel (Campañas/Platos)
-        // Puedes implementar la lógica de filtrado del otro panel aquí mismo.
-        // actualizarPanel(listaFiltrada); 
+        // ✅ 2. Inicializamos el mapa centrado en la ubicación específica del restaurante.
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: ubicacion,
+            zoom: 16, // Un zoom más alto para ver la ubicación específica
+            mapTypeControl: false, // Opcional: para limpiar la interfaz
+            streetViewControl: false,
+        });
+
+        // ✅ 3. Cargamos el marcador único.
+        cargarMarcador(ubicacion, restaurante.nombre);
+    };
+
+    /**
+     * Carga un único marcador en el mapa.
+     * @param {object} ubicacion - Objeto { lat: number, lng: number } con las coordenadas.
+     * @param {string} nombre - Nombre del restaurante para el título del marcador.
+     */
+    function cargarMarcador(ubicacion, nombre) {
+        
+        // Crear el marcador
+        const marker = new google.maps.Marker({
+            position: ubicacion,
+            map: map,
+            title: nombre,
+            // Opcional: Puedes usar un icono diferente o personalizado
+            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' 
+        });
+
+        // Opcional: Añadir una ventana de información (InfoWindow)
+        const infoWindow = new google.maps.InfoWindow({
+            content: `<h6>${nombre}</h6>`
+        });
+
+        marker.addListener("click", () => {
+            infoWindow.open(map, marker);
+        });
+        
+        // Abrir la InfoWindow por defecto al cargar
+        infoWindow.open(map, marker); 
     }
-    
-    // ... (Tu función actualizarPanelCampanas si todavía la necesitas) ...
+
+    // ✅ Eliminamos todas las funciones de manejo de listas y filtros (cargarMarcadores, filtrarUbicaciones, actualizarPanelCampanas).
+
 </script>
-<script async src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"></script>
+
+@* Script de la API de Google Maps con la clave. *@@* Mantenemos el callback=initMap para que la API se inicialice al cargar. *@
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHo2Nt4gu8COeh6PahmHc-QGsDPkzWWjs&callback=initMap"></script>
 }

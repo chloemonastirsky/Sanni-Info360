@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\49552251\\Downloads\\Sanni-Info360\\wwwroot\\SANNIBD.sql",
-      "PackagePath": "staticwebassets\\SANNIBD.sql"
-    },
-    {
       "Id": "C:\\Users\\49552251\\Downloads\\Sanni-Info360\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
