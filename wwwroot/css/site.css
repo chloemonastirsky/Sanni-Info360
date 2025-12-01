@@ -504,6 +504,120 @@ justify-items: center;
 /* margin-right:120px; */
 margin-left: 0 !important;
 }
+
+
+/* ---------------------------------------------------- */
+/* ESTILOS CSS PARA NOTIFICACIONES */
+/* ---------------------------------------------------- */
+
+.notificaciones-main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.notificaciones-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.titulo-notificaciones {
+    font-size: 2.2em;
+    color: #4CAF50; /* Verde Sanni */
+    font-weight: 700;
+}
+
+.subtitulo-notificaciones {
+    color: #666;
+}
+
+/* Lista de notificaciones */
+.lista-notificaciones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-notificacion {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white; 
+    border-left: 5px solid #4CAF50; 
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-notificacion:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.icono-noti {
+    font-size: 1.5em;
+    padding-right: 15px;
+    flex-shrink: 0;
+}
+
+.contenido-noti {
+    flex-grow: 1;
+}
+
+.titulo-noti {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    font-weight: bold; 
+    color: #333;
+}
+
+.mensaje-noti {
+    margin: 0;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.meta-noti {
+    text-align: right;
+    flex-shrink: 0;
+    margin-left: 15px;
+}
+
+.fecha-noti {
+    color: #999;
+    font-size: 0.8em;
+}
+
+/* Mensaje de vacío */
+.mensaje-vacio {
+    text-align: center;
+    padding: 60px;
+    background-color: #f8f8f8;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    margin-top: 40px;
+    color: #777;
+}
+
+/* Adaptación a dispositivos móviles */
+@media (max-width: 600px) {
+    .card-notificacion {
+        flex-wrap: wrap;
+    }
+    .meta-noti {
+        margin-top: 10px;
+        width: 100%;
+        text-align: left;
+        margin-left: 0;
+        padding-top: 10px;
+        border-top: 1px dotted #eee;
+    }
+    .icono-noti {
+        padding-right: 10px;
+    }
+}
+
 }
 
 

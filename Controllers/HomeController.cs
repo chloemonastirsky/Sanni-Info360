@@ -126,16 +126,35 @@ public class HomeController : Controller
         return View("restriccion");
    }
 
-   public IActionResult BuscarRestricciones(string busqueda){
-        Categoria restriccion = BD.BusquedaRestricciones(busqueda);
-        int idCategoria = restriccion.idCategoria;
-        ViewBag.Restriccion = BD.BusquedaRestricciones(busqueda);
+
+   public IActionResult BuscarRestricciones(string busqueda)
+{
+    // 1. Ejecuta la búsqueda y guarda el resultado potencial
+    Categoria restriccion = BD.BusquedaRestricciones(busqueda);
+
+    // 2. VERIFICACIÓN CRÍTICA: Asegurarse de que se encontró algo
+    if (restriccion != null)
+    {
+        // El objeto existe, ahora podemos acceder a sus propiedades sin error.
+        int idCategoria = restriccion.idCategoria; 
+        ViewBag.Restriccion = restriccion; 
+        ViewBag.RestaurantesRelacionados=BD.GetRestauranteRestriccion(idCategoria);
         List<Plato> LP = BD.GetPlatosRestriccion(idCategoria);
         ViewBag.PlatosRestriccion = LP;
         List<Bebida> LB = BD.GetBebidasRestriccion(idCategoria);
         ViewBag.BebidasRestriccion = LB;
-        return View("restriccion");
-   }
+        // Retornar a la vista que muestra los resultados
+        return View("RestriccionesEncontradas", restriccion); 
+    }
+    else
+    {
+        
+        
+        ViewBag.Error = $"No se encontró ninguna restricción o categoría que coincida con '{busqueda}'.";
+        
+        return View("restricciones"); 
+    }
+}
 
 
 

@@ -183,7 +183,16 @@ public static Categoria BusquedaRestricciones(string busqueda){
     return restriccion;
 }
 
-
+public static List<Restaurante> GetRestauranteRestriccion(int idCategoria){
+    
+    List<Restaurante> LRestaurantes;
+       using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "GetRestaurantesRestriccion";
+        LRestaurantes = connection.Query<Restaurante>(query, new { pidCategoria = idCategoria }, commandType : CommandType.StoredProcedure).ToList();
+    }
+    return LRestaurantes;
+}
 public static List<Plato> GetPlatosRestriccion(int idCategoria){
     
     List<Plato> LPlatos;

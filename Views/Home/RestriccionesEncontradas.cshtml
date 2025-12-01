@@ -1,0 +1,71 @@
+
+@{
+    ViewData["Title"] = "Búsqueda por Restricciones";
+    // Si tienes el layout definido en _ViewStart.cshtml, puedes eliminar la línea de abajo.
+    // Layout = "_Layout"; 
+}
+
+<main class="resultados-busqueda-sanni">
+    
+    <div class="header-resultados">
+        @if (ViewBag.Restriccion != null)
+        {
+            <h1 class="titulo-restriccion">Búsqueda por Restricciones</h1>
+            <h2 class="subtitulo-restriccion">Resultados para: @ViewBag.Restriccion.nombre</h2>
+        }
+        else
+        {
+            <h1 class="titulo-restriccion">Búsqueda por Restricciones</h1>
+            <p class="subtitulo-restriccion">No se encontró la restricción solicitada.</p>
+        }
+    </div>
+    
+    @if (ViewBag.RestaurantesRelacionados != null && ViewBag.RestaurantesRelacionados.Count > 0)
+    {
+        <section class="seccion-restaurantes">
+            <h2>🍽️ Restaurantes con opciones @ViewBag.Restriccion.nombre</h2>
+            
+            <div class="lista-items">
+                @foreach (var resto in ViewBag.RestaurantesRelacionados)
+                {
+                    <div class="card-resto">
+                        <h3>@resto.nombre</h3>
+                        <p>@resto.tipoComida</p>
+                        <a class="btn btn-primary w-100" href='@Url.Action("verRestaurante", "Home", new {idRestaurante= resto.idRestaurante})'>
+                                Ver Menú
+                        </a>
+                    </div>
+                }
+            </div>
+        </section>
+    }
+    
+    @if (ViewBag.PlatosRestriccion != null && ViewBag.PlatosRestriccion.Count > 0)
+    {
+        <section class="seccion-platos">
+            <h2>🥗 Platos @ViewBag.Restriccion.nombre Destacados</h2>
+            
+            <div class="lista-items">
+                @foreach (var plato in ViewBag.PlatosRestriccion)
+                {
+                    <div class="card-plato">
+                        <h4>@plato.nombre</h4>
+                        <p class="precio">$@plato.precio</p>
+                        <a href="#" class="btn-agregar">Añadir</a>
+                    </div>
+                }
+            </div>
+        </section>
+    }
+    
+    @* Condición ajustada para mostrar el mensaje de vacío solo si la restricción fue encontrada (ViewBag.Restriccion != null) 
+       pero no se encontró ningún restaurante o plato. *@
+    @if (ViewBag.Restriccion != null && (ViewBag.RestaurantesRelacionados == null || ViewBag.RestaurantesRelacionados.Count == 0) && (ViewBag.PlatosRestriccion == null || ViewBag.PlatosRestriccion.Count == 0))
+    {
+        <div class="mensaje-vacio">
+            <p>Lo sentimos, no hay platos ni restaurantes disponibles actualmente que cumplan con la restricción **@ViewBag.Restriccion.nombre**.</p>
+            <a href='@Url.Action("verRestricciones","Home")' class="btn-primary-sanni">Volver a Restricciones</a>
+        </div>
+    }
+
+</main>

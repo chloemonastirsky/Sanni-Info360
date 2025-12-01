@@ -1,78 +1,78 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+    @* SUGERENCIA: Añadir Font Awesome para los iconos de la campana en notificaciones *@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /> 
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-  <header class="fixed-header">
-      <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-      
-          <!-- IZQUIERDA -->
-          <div class="left-section">
-            <div class="dropdown">
-              <button class="btn dropdown-toggle" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-               <img class="menu" src="~/imagenes/iconoMenu.png" alt="Menú">
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="menuDropdown">
-                <li><a class="dropdown-item" href='Url.Action("Index","Home")'>Inicio</a></li>
-                
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href='@Url.Action("verFavoritos","Home")'>Favoritos</a></li>
-                <li><a class="dropdown-item" href='@Url.Action("verRestaurantes","Home")'>Restaurantes</a></li>
-                <li><a class="dropdown-item" href='@Url.Action("verRestricciones","Home")'>Restricciones</a></li>
-                <li><a class="dropdown-item" href='@Url.Action("verNotificaciones","Home")'>Notificaciones</a></li>
-                <!-- ASUMO que la acción de promociones es "verPromociones" o similar, si no existe en el Controller, cámbiala. -->
-                <li><a class="dropdown-item" href='@Url.Action("verPromociones","Home")'>Promociones</a></li> 
-                <li><a class="dropdown-item" href='@Url.Action("chatbot","Home")'>Chat</a></li>
-              </ul>
+    <header class="fixed-header">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+            
+                <div class="left-section">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                           <img class="menu" src="~/imagenes/iconoMenu.png" alt="Menú">
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="menuDropdown">
+                            <li><a class="dropdown-item" href='@Url.Action("Index","Home")'>Inicio</a></li> 
+                            
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href='@Url.Action("verFavoritos","Home")'>Favoritos</a></li>
+                            <li><a class="dropdown-item" href='@Url.Action("verRestaurantes","Home")'>Restaurantes</a></li>
+                            <li><a class="dropdown-item" href='@Url.Action("verRestricciones","Home")'>Restricciones</a></li>
+                            <li><a class="dropdown-item" href='@Url.Action("verNotificaciones","Home")'>Notificaciones</a></li>
+                            <li><a class="dropdown-item" href='@Url.Action("verPromociones","Home")'>Promociones</a></li> 
+                        </ul>
+                    </div>
+                    <img class="logo" src="~/imagenes/LOGO TERMINADO SANNI LISTO.png" alt="Logo"> 
+                </div>
+            
+                <div class="right-section">
+                    <form action='@Url.Action("BuscarRestricciones","Home")' method="post">
+                        <input type="search" name="busqueda" placeholder="Buscar...">
+                        <button type="submit">Buscar</button>
+                    </form>
+                    <img class="menu" src="~/imagenes/iconoLupa.png" alt="Buscar">
+                    <img class="menu" src="~/imagenes/iconoUsuario.webp" alt="Usuario">
+                </div>
+            
             </div>
-            <img class="logo" src="~/imagenes/LOGO TERMINADO SANNI LISTO.png" alt="Logo">   
-          </div>
-      
-          <!-- DERECHA -->
-          <div class="right-section">
-            <form action='Url.Action("BuscarRestricciones","Home")' method="post">
-              <input type="search" name="busqueda" placeholder="Buscar...">
-               <button type="submit">Buscar</button>
-            </form>
-            <img class="menu" src="~/imagenes/iconoLupa.png" alt="Buscar">
-
-            <img class="menu" src="~/imagenes/iconoUsuario.webp" alt="Usuario">
-          </div>
-      
-        </div>
-      </nav>
+        </nav>
     </header>
     
-    <!-- PASO 3: Contenido Principal - Se le asigna la clase 'main-content' (para CSS) y 'flex-grow-1' (para sticky footer) -->
     <main role="main" class="pb-3 main-content flex-grow-1">
         @RenderBody()
     </main>
-      
-      <footer>
-    <div class="footer-container">
-        <div class="footer-logo">
-            <img class="logo-footer" src='@Url.Content("~/imagenes/logo simplificado editado.png")' alt="Logo" />
-        </div>
-        <div class="redes-numero">
-            <div class="footer-redes">
-                <a href="#"><img class="ig" src='@Url.Content("~/imagenes/ig.png")' alt="Instagram" /></a>
-                <a href="#"><img class="x" src='@Url.Content("~/imagenes/x.png")' alt="X" /></a>
-                <a href="#"><img class="tt" src='@Url.Content("~/imagenes/tt.png")' alt="TikTok" /></a>
+        
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img class="logo-footer" src='@Url.Content("~/imagenes/logo simplificado editado.png")' alt="Logo" />
             </div>
-            <div class="footer-numero">
-                <img class="telefono" src='@Url.Content("~/imagenes/telefono.png")' alt="Teléfono" />
-                <h6>+54 9 11 6289-1434</h6>
+            <div class="redes-numero">
+                <div class="footer-redes">
+                    <a href="#"><img class="ig" src='@Url.Content("~/imagenes/ig.png")' alt="Instagram" /></a>
+                    <a href="#"><img class="x" src='@Url.Content("~/imagenes/x.png")' alt="X" /></a>
+                    <a href="#"><img class="tt" src='@Url.Content("~/imagenes/tt.png")' alt="TikTok" /></a>
+                </div>
+                <div class="footer-numero">
+                    <img class="telefono" src='@Url.Content("~/imagenes/telefono.png")' alt="Teléfono" />
+                    <h6>+54 9 11 6289-1434</h6>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    
+    @* Si tienes scripts específicos de tu aplicación, deberían ir aquí: *@
+    @* @await RenderSectionAsync("Scripts", required: false) *@
+
 </body>
 </html>

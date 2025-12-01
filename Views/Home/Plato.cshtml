@@ -1,21 +1,35 @@
+@* Views/Home/VerPlato.cshtml *@
+
 @{
     Layout = "_Layout";
-    var plato = ViewBag.Plato; // Acceso a la información del plato
+    // Solo definimos la variable 'plato'
+    var plato = ViewBag.Plato; 
     
-    // Suponiendo que tienes las propiedades nutricionales en el modelo Plato
-    // Si no existen, deberás obtenerlas de otro lado o usar datos dummy/fijos
-    int calorias = plato.calorias;
-    int proteinas = 40; // Dato de ejemplo, ajusta a tu modelo
-    int carbohidratos = 40; // Dato de ejemplo, ajusta a tu modelo
-    int fibra = 10; // Dato de ejemplo, ajusta a tu modelo
-    int grasas = 10; // Dato de ejemplo, ajusta a tu modelo
-
-    // Lógica de cálculo del precio con descuento (dto)
-    decimal precioFinal = (decimal)plato.precio * (1 - (plato.dto / 100.0m));
+    // Variables temporales para el caso de que el plato no se encuentre
+    decimal precioFinal = 0.0m;
 }
 
 @if (plato != null)
 {
+    // Mover TODA la lógica de inicialización y cálculo que usa 'plato' aquí:
+    
+    // Asignación de datos (usando null-conditional operators ?. si es posible, 
+    // pero para simplicidad, lo haremos solo si plato != null)
+    int calorias = plato.calorias;
+    // Ajusta estos valores según las propiedades de tu modelo Plato si existen
+    int proteinas = 40; 
+    int carbohidratos = 40; 
+    int fibra = 10; 
+    int grasas = 10; 
+
+    // Lógica de cálculo del precio con descuento (dto)
+    // Asegurarse de que dto sea al menos 0 para evitar errores.
+    decimal descuento = (plato.dto > 0) ? (decimal)plato.dto / 100.0m : 0.0m;
+    precioFinal = (decimal)plato.precio * (1 - descuento);
+    
+    // ------------------------------------------------------------------
+    // AHORA EMPIEZA EL HTML DENTRO DEL IF
+    // ------------------------------------------------------------------
     <div class="container my-4">
         
         <div class="row justify-content-center mb-4">
@@ -44,7 +58,6 @@
                 <div class="card p-3 p-md-4 shadow-lg border-0">
                     <div class="text-center">
                         
-                        @* foto *@
                         
                         <h2 class="fw-bold mt-3" style="color: #4CAF50;">@plato.nombre</h2>
                         
@@ -82,17 +95,18 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> @* <--- CIERRE DE COL *@
+        </div> @* <--- CIERRE DE ROW *@
         
-    </div>
-    
+    </div> @* <--- CIERRE DE CONTAINER *@
 }
 else
 {
     <div class="container my-5 text-center">
         <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">¡Plato no encontrado!</h4>
+            <p>El identificador del plato es incorrecto o la información no está disponible.</p>
         </div>
+        <a href='@Url.Action("Index", "Home")' class="btn btn-primary">Ir a la página principal</a>
     </div>
 }
