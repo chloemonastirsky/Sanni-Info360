@@ -128,7 +128,18 @@ public class BD{
 }
 
 public static List<FavAgregados> GetFavoritos(int idUsuario){
-    //ver pq no funciona
+    //ver pq no funciona 
+// CREATE or alter PROCEDURE GetFavoritos
+	
+// 	@pidUsuario int
+// AS
+// BEGIN
+// 	SELECT Platos.nombre as NombrePlato, Restaurantes.nombre as NombreRestaurante, Bebidas.nombre as NombreBebida from Favoritos
+// 	inner join Platos on Platos.idPlato=Favoritos.idPlato
+// 	inner join Restaurantes on Restaurantes.idRestaurante=Favoritos.idRestaurante
+// 	inner join Bebidas on Bebidas.idBebida=Favoritos.idBebida
+// 	END
+// GO
     List<FavAgregados> LFavs;
     using (SqlConnection connection = new SqlConnection(conexion))
     {

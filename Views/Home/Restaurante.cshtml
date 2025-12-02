@@ -28,7 +28,7 @@ var bebidas = ViewBag.BebidasRestaurante as List<Bebida>;
                         </div>
                         
                         <p class="text-muted mb-4">
-                            Aquí iría una breve descripción o el eslogan del restaurante, y datos de contacto.
+                            @restaurante.direccion
                         </p>
                         
                         <a href="#menu-platos" class="btn btn-lg btn-warning fw-bold text-dark">
@@ -123,4 +123,66 @@ var bebidas = ViewBag.BebidasRestaurante as List<Bebida>;
 
 </div>
 
+
+<script>
+    // Variables dinámicas pasadas desde el controlador
+    const latitud = @ViewBag.Restaurante.latitud; // Ej: -34.6037
+    const longitud = @ViewBag.Restaurante.longitud; // Ej: -58.3816
+    const nombre = "@ViewBag.RestauranteNombre"; // Ej: "EcoBite"
+
+    // URL para cargar la API de Google Maps
+    // Usamos la variable global proporcionada por el entorno de Canvas.
+    const apiKey = typeof __google_maps_api_key !== 'undefined' ? __google_maps_api_key : 'TU_CLAVE_DE_API_REAL';
+    const scriptUrl = "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=console.debug&libraries=maps,marker&v=beta";
+
+    // 1. Inicializar el mapa
+    function initMap() {
+        // Coordenadas del restaurante
+        const restauranteCoords = { lat: latitud, lng: longitud };
+
+        // Opciones del mapa
+        const mapOptions = {
+            center: restauranteCoords,
+            zoom: 15, // Nivel de zoom adecuado para un lugar específico
+        };
+
+        // Crear el mapa en el contenedor 'mapaUbicacion'
+        const map = new google.maps.Map(
+            document.getElementById("mapaUbicacion"),
+            mapOptions
+        );
+
+        // 2. Colocar un marcador (Marker)
+        new google.maps.Marker({
+            position: restauranteCoords,
+            map: map,
+            title: nombre, // El nombre del restaurante
+        });
+        
+        // Opcional: Añadir una InfoWindow (una burbuja de información)
+        const infoWindow = new google.maps.InfoWindow({
+            content: `<h5>${nombre}</h5>`
+        });
+        
+        // infoWindow.open(map, marker); // Si quieres que se abra automáticamente
+    }
+    
+    // 2. Cargar el script de Google Maps API
+    // Creamos la etiqueta <script> y la añadimos al documento
+    function loadScript() {
+        if (!document.querySelector(`script[src^="https://maps.googleapis.com"]`)) {
+            const script = document.createElement('script');
+            script.src = scriptUrl;
+            script.async = true;
+            document.head.appendChild(script);
+        }
+    }
+
+    // Llamamos a la función para cargar la API
+    loadScript();
+
+</script>
+
+<script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
 

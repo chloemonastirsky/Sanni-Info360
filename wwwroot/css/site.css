@@ -286,19 +286,66 @@ footer {
 }
 
 /* Estilos para el enlace de "Registrarse" */
+/* REEMPLAZA ESTAS REGLAS ANTIGUAS por las nuevas a continuación */
 .formulario + h6, .formulario + h6 + a {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px; /* <--- Esta regla es la que causaba la separación */
 }
 
 .formulario + h6 + a button {
-    background-color: #f0f0f0; 
-    color: #4A963F;
-    border: 1px solid #4A963F;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
+  background-color: #f0f0f0; 
+  color: #4A963F;
+  border: 1px solid #4A963F;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+/* --- NUEVOS ESTILOS DE LOGIN Y REGISTRO --- */
+
+/* 1. Estilo para el contenedor principal y centrar todo */
+.contenedor-login-registro {
+  margin: 50px auto 20px auto; 
+  max-width: 350px; 
+  text-align: center; /* Centra el h6 y el botón que están fuera del .formulario */
+}
+
+/* 2. Mantén el estilo del formulario (la caja) */
+.formulario {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Asegura que el formulario no tenga margen inferior, si lo tenía */
+  margin-bottom: 0; 
+}
+
+/* 3. Estilo para el texto "¿No tienes cuenta?" */
+.texto-registro {
+  text-align: center;
+  margin-top: 15px; /* Pequeño margen superior para separarlo del formulario */
+  margin-bottom: 5px; /* Pégalo un poco más al botón */
+  font-size: 14px;
+  color: #555;
+}
+
+/* 4. Estilo para el botón Registrarse (Secundario) */
+.btn-registro-secundario {
+  background-color: #f0f0f0; /* Color de fondo claro */
+  color: #4A963F; /* Color de texto SANNI */
+  border: 1px solid #4A963F; /* Borde SANNI */
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 70%; /* Le damos un ancho para que se vea bien centrado */
+  margin-bottom: 20px; /* Margen inferior para separarlo de lo de abajo */
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-registro-secundario:hover {
+  background-color: #4A963F;
+  color: white;
 }
 
 
