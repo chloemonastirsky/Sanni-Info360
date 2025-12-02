@@ -200,7 +200,7 @@ public static List<Promocion> GetPromos(){
     List<Promocion> Lpromos;
        using (SqlConnection connection = new SqlConnection(conexion))
     {
-        string query = "SELECT * FROM Promociones";
+        string query = "SELECT P.*, R.Nombre as NombreRestaurante FROM Promociones P INNER JOIN Restaurantes R ON  P.IdRestaurante = R.IdRestaurante";
         Lpromos = connection.Query<Promocion>(query, new { }).ToList();
     }
     return Lpromos;

@@ -45,8 +45,8 @@ public class AccountController : Controller
 
     public IActionResult CerrarSesion()
     {
-        HttpContext.Session.Clear();
-        return RedirectToAction("iniciarSesion", "Account");
+        HttpContext.Session.Remove("IdUsuario");
+        return RedirectToAction("Index", "Home");
     }
 
     public IActionResult CambiarContrasena(string email)
