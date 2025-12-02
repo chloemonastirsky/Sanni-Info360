@@ -30,21 +30,26 @@
                             <li><a class="dropdown-item" href='@Url.Action("verPromociones","Home")'>Promociones</a></li> 
                         </ul>
                     </div>
-                    <img class="logo" src="~/imagenes/LOGO TERMINADO SANNI LISTO.png" alt="Logo"> 
+                    <a href='@Url.Action("Index", "Home")' title="Ir al inicio de SANNI">
+                <img class="logo" src="~/imagenes/LOGO TERMINADO SANNI LISTO.png" alt="Logo de SANNI">
+                    </a>
                 </div>
             
-                <div class="right-section">
-                    <form action='@Url.Action("BuscarRestricciones","Home")' method="post">
-                        <input type="search" name="busqueda" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
-                    </form>
-                    <img class="menu" src="~/imagenes/iconoLupa.png" alt="Buscar">
-                <a href='@Url.Action("verPerfil", "Home")' title="Ver Perfil">
-                <img class="usuario" src="~/imagenes/iconoUsuario.webp" alt="Usuario">
-                </a>                
-            </div>
-            
-            </div>
+                <div class="right-section d-flex align-items-center gap-3">
+    
+    <form action='@Url.Action("BuscarRestricciones","Home")' method="post" class="input-group search-form d-flex flex-nowrap"> 
+        <input type="search" name="busqueda" placeholder="Buscar..." class="form-control" style="border-right: none;">
+        
+        <button type="submit" class="btn btn-search">
+            <i class="fas fa-magnifying-glass"></i>
+        </button>
+    </form>
+    
+    <a href='@Url.Action("verPerfil", "Home")' title="Ver Perfil" class="d-flex align-items-center">
+        <img class="usuario profile-icon" src="~/imagenes/iconoUsuario.webp" alt="Usuario"> 
+    </a>
+    
+</div>
         </nav>
     </header>
     

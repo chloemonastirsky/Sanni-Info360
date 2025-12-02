@@ -4,14 +4,15 @@ using Microsoft.Data.SqlClient;
 using Dapper;
 public class BD{
     private static string conexion = @"Server=localhost; DataBase=Sanni; Integrated Security = True; TrustServerCertificate=True";    
-    public static Usuario Login(string email, string contraseña){
+    public static Usuario Login(string email, string contrasena){
         Usuario UserLogged=null;
         using(SqlConnection connection = new SqlConnection(conexion)){
-            string query = "LoginUsuario";
-            UserLogged= connection.QueryFirstOrDefault<Usuario>(query, new { pemail = email, pcontraseña = contraseña }, commandType : CommandType.StoredProcedure);
+            string query = "Login";
+            UserLogged= connection.QueryFirstOrDefault<Usuario>(query, new { pemail = email, pcontrasena = contrasena }, commandType : CommandType.StoredProcedure);
         }
         return UserLogged;
-    }
+        }
+     
 
      public static Usuario GetUsuario(int idUsuario){
         Usuario usuarioMostrar=null;
@@ -22,12 +23,12 @@ public class BD{
         return usuarioMostrar;
     }
 
-     public static void Registro(string nombre, string apellido, string email, string contraseña, string direccion , int telefono)
+     public static void Registro(string nombre, string apellido, string email, string contrasena, string direccion , int telefono)
     {
         using (SqlConnection connection = new SqlConnection(conexion))
         {
             string query = "Registro";
-            connection.Execute(query, new { pnombre=nombre, papellido=apellido, pemail=email, pcontrasena=contraseña, pdireccion=direccion, ptelefono=telefono}, commandType : CommandType.StoredProcedure);
+            connection.Execute(query, new { pnombre=nombre, papellido=apellido, pemail=email, pcontrasena=contrasena, pdireccion=direccion, ptelefono=telefono}, commandType : CommandType.StoredProcedure);
         }
     }
 
@@ -181,6 +182,17 @@ public static Categoria BusquedaRestricciones(string busqueda){
         restriccion = connection.QueryFirstOrDefault<Categoria>(query, new {pbusqueda=busqueda}, commandType : CommandType.StoredProcedure);
     } 
     return restriccion;
+}
+
+public static List<Promocion> GetPromos(){
+    
+    List<Promocion> Lpromos;
+       using (SqlConnection connection = new SqlConnection(conexion))
+    {
+        string query = "SELECT * FROM Promociones";
+        Lpromos = connection.Query<Promocion>(query, new { }).ToList();
+    }
+    return Lpromos;
 }
 
 public static List<Restaurante> GetRestauranteRestriccion(int idCategoria){

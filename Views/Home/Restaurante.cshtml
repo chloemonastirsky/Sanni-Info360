@@ -1,132 +1,126 @@
+@* Views/Home/verRestaurante.cshtml *@
 @{
     Layout = "_Layout";
-}
-
-@* 1. Encabezado del Restaurante *@
-@if (ViewBag.Restaurante != null)
-{
-    <h2>@ViewBag.Restaurante.nombre</h2>
-    <img class = "fotoResto" src="/imagenes/@ViewBag.Restaurante.foto" />
-
-    <hr />
-}
-else
-{
-    <h2>Resultados de Restaurante</h2>
-}
-
-@* 2. Platos Disponibles *@
-<h3>Platos Disponibles</h3>
-@if (ViewBag.PlatosRestaurante != null && ViewBag.PlatosRestaurante.Count > 0)
-{
-    @foreach (var p in ViewBag.PlatosRestaurante)
-    {
-        <div class="item-plato">
-            <a class="btn btn-primary" href='@Url.Action("verPlato", "Home", new {idPlato= p.idPlato})'>
-                @p.nombre
-            </a>
-            
-            <p><strong>Descripción:</strong> @p.descripcion</p>
-            <p><strong>Calorías:</strong> @p.calorias</p>
-            <p><strong>Precio:</strong> $@p.precio</p>
-        </div>
-        <br/>
-    }
-}
-else
-{
-    <p>No se encontraron platos para este restaurante.</p>
-}
-
-@* 3. Bebidas Disponibles *@
-<h3>Bebidas Disponibles</h3>
-@if (ViewBag.BebidasRestaurante != null && ViewBag.BebidasRestaurante.Count > 0)
-{
-    @foreach (var b in ViewBag.BebidasRestaurante)
-    {
-        <div class="item-bebida">
-            <a class="btn btn-primary" href='@Url.Action("verBebida", "Home", new {idBebida= b.idBebida})'>
-                @b.nombre
-            </a>
-            
-            <p><strong>Descripción:</strong> @b.descripcion</p>
-        </div>
-        <br/>
-    }
-}
-else
-{
-    <p>No se encontraron bebidas para este restaurante.</p>
-}
-
-@* 4. Contenedor HTML del Mapa *@
-@if (ViewBag.Restaurante != null)
-{
-    <h3 class="mt-4">Ubicación de @ViewBag.Restaurante.nombre</h3>
-    <div id="mapa" style="height: 350px; width: 100%; margin-bottom: 20px;"></div>
-}
-
-<div id="map" style="height: 400px; width: 100%;"></div>
-
-<script>
-    // ✅ 1. Obtenemos el objeto de un solo restaurante desde el ViewBag.
-    // Asumimos que ViewBag.Restaurante es un objeto con propiedades 'latitud', 'longitud' y 'nombre'.
-    const restaurante = @Html.Raw(ViewBag.Restaurante); 
+    ViewData["Title"] = (ViewBag.Restaurante != null) ? ViewBag.Restaurante.nombre : "Detalle de Restaurante";
     
-    let map;
+    var restaurante = ViewBag.Restaurante as Restaurante;
+var platos = ViewBag.PlatosRestaurante as List<Plato>;
+var bebidas = ViewBag.BebidasRestaurante as List<Bebida>;
+}
 
-    window.initMap = function () {
+<div class="container my-5">
+    
+    @if (restaurante != null)
+    {
+        <div class="card shadow-lg mb-5 border-0 bg-light-sanni">
+            <div class="row g-0">
+                
+                <div class="col-md-4">
+                    <img src="/imagenes/@restaurante.foto" class="img-fluid rounded-start resto-header-img" alt="@restaurante.nombre" />
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="card-body p-4">
+                        <h1 class="card-title display-5 fw-bold" style="color: #4CAF50;">@restaurante.nombre</h1>
+                        
+                        <div class="text-warning fs-4 mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        
+                        <p class="text-muted mb-4">
+                            Aquí iría una breve descripción o el eslogan del restaurante, y datos de contacto.
+                        </p>
+                        
+                        <a href="#menu-platos" class="btn btn-lg btn-warning fw-bold text-dark">
+                            Ver Menú Completo <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        // Verificación básica de que los datos existen y son válidos
-        if (!restaurante || !restaurante.latitud || !restaurante.longitud) {
-            console.error("Error: No se encontraron datos de latitud/longitud del restaurante.");
-            document.getElementById("map").innerHTML = "<p>Ubicación no disponible.</p>";
-            return;
+        <h2 class="text-center mb-4 fw-bold" style="color: #333;" id="menu-platos">
+            Menú del Día
+        </h2>
+        <hr class="mb-5" style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #c8e6c9, rgba(0, 0, 0, 0));" />
+
+
+        <h3 class="fw-bold mb-4" style="color: #4CAF50;"><i class="fas fa-utensils me-2"></i> Platos Principales</h3>
+        
+        @if (platos != null && platos.Count > 0)
+        {
+            <div class="row g-3 mb-5">
+                @foreach (var p in platos)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm border-0 item-card-sanni">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold" style="color: #4CAF50;">@p.nombre</h5>
+                                <p class="card-text text-muted mb-2">@p.descripcion</p>
+                                
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-warning text-dark fw-bold">@p.calorias Cals</span>
+                                    <h5 class="fw-bolder mb-0">$@p.precio.ToString("N0")</h5>
+                                </div>
+                                
+                                <a href='@Url.Action("verPlato", "Home", new {idPlato= p.idPlato})' class="btn btn-sm btn-outline-success w-100">
+                                    Ver Detalle <i class="fas fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info text-center">No se encontraron platos para este restaurante.</div>
         }
 
-        const ubicacion = { lat: restaurante.latitud, lng: restaurante.longitud };
+        <hr class="my-5" />
 
-        // ✅ 2. Inicializamos el mapa centrado en la ubicación específica del restaurante.
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: ubicacion,
-            zoom: 16, // Un zoom más alto para ver la ubicación específica
-            mapTypeControl: false, // Opcional: para limpiar la interfaz
-            streetViewControl: false,
-        });
-
-        // ✅ 3. Cargamos el marcador único.
-        cargarMarcador(ubicacion, restaurante.nombre);
-    };
-
-   
-    function cargarMarcador(ubicacion, nombre) {
+        <h3 class="fw-bold mb-4" style="color: #4CAF50;"><i class="fas fa-wine-glass-alt me-2"></i> Bebidas</h3>
         
-        // Crear el marcador
-        const marker = new google.maps.Marker({
-            position: ubicacion,
-            map: map,
-            title: nombre,
-            // Opcional: Puedes usar un icono diferente o personalizado
-            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' 
-        });
-
-        // Opcional: Añadir una ventana de información (InfoWindow)
-        const infoWindow = new google.maps.InfoWindow({
-            content: `<h6>${nombre}</h6>`
-        });
-
-        marker.addListener("click", () => {
-            infoWindow.open(map, marker);
-        });
+        @if (bebidas != null && bebidas.Count > 0)
+        {
+            <div class="row g-3 mb-5">
+                @foreach (var b in bebidas)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm border-0 item-card-sanni">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold" style="color: #4CAF50;">@b.nombre</h5>
+                                <p class="card-text text-muted">@b.descripcion</p>
+                                <a href='@Url.Action("verBebida", "Home", new {idBebida= b.idBebida})' class="btn btn-sm btn-outline-success w-100 mt-2">
+                                    Ver Detalle
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info text-center">No se encontraron bebidas para este restaurante.</div>
+        }
         
-        // Abrir la InfoWindow por defecto al cargar
-        infoWindow.open(map, marker); 
+        <hr class="my-5" />
+
+        <h3 class="fw-bold mb-4" style="color: #4CAF50;"><i class="fas fa-map-marker-alt me-2"></i> Ubicación</h3>
+        
+        <div id="map" class="shadow-lg rounded-3" style="height: 450px; width: 100%; margin-bottom: 20px;"></div>
+        
+    }
+    else
+    {
+        <div class="alert alert-danger text-center p-5">
+            <h4 class="alert-heading">Restaurante No Encontrado</h4>
+            <p>Lo sentimos, el restaurante solicitado no está disponible o no existe.</p>
+            <a href='@Url.Action("verRestaurantes", "Home")' class="btn btn-primary mt-3">Ver otros restaurantes</a>
+        </div>
     }
 
-    // ✅ Eliminamos todas las funciones de manejo de listas y filtros (cargarMarcadores, filtrarUbicaciones, actualizarPanelCampanas).
+</div>
 
-</script>
 
-@* Script de la API de Google Maps con la clave. *@@* Mantenemos el callback=initMap para que la API se inicialice al cargar. *@
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHo2Nt4gu8COeh6PahmHc-QGsDPkzWWjs&callback=initMap"></script>
-}

@@ -83,26 +83,24 @@ public class HomeController : Controller
         return View("favoritos");
     }
 
-    // Si quieres usar esta acción, debes descomentarla y corregirla:
-    // public IActionResult verPromociones()
-    // {
-    //     List<Promocion> LPromos = BD.GetPromociones();
-    //     ViewBag.Promociones = LPromos;
-    //     return View("promociones");
-    // }
+    public IActionResult verPromociones(int idRestaurante)
+     {
+         List<Promocion> LPromos = BD.GetPromos();
+         ViewBag.Promociones = LPromos;
+         return View("promociones");
+     }
 
-    public IActionResult verNotificaciones(int idUsuario)
+    public IActionResult verNotificaciones()
     {
         string stringIdUsuario= HttpContext.Session.GetString("IdUsuario");
         int IdUsuario=int.Parse(stringIdUsuario);
         List<NotificacionesUsuario> LNotis = BD.GetNotificacionesUsuario(IdUsuario);
         ViewBag.NotificacionesUsuario = LNotis;
-        // CORRECCIÓN: Retorna la vista "notificaciones"
         return View("notificaciones");
     }
 
 
-    public IActionResult verPerfil(int idUsuario)
+    public IActionResult verPerfil()
     {
         string stringIdUsuario= HttpContext.Session.GetString("IdUsuario");
         int IdUsuario=int.Parse(stringIdUsuario);

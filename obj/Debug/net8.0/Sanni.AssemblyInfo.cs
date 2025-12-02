@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sanni")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4ec3dffbfd414155e982c458e75e4c08459f4fb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db1da6a6af793b1f587e8cd351f50b4acb4b89fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sanni")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sanni")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

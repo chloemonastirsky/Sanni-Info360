@@ -1,1 +1,73 @@
-<!-- Recorrer las promociones y con joins sacar foto del plato, nombre, descripcion, precio, y restricciones-->  
+
+@{
+    ViewData["Title"] = "Promociones y Ofertas";
+    Layout = "_Layout";
+    
+    // Obtenemos la lista desde el ViewBag
+    var LPromos = ViewBag.Promociones as List<Promocion>;
+}
+
+<div class="container my-5">
+    
+    <div class="header-promociones text-center mb-5">
+        <h1 class="display-4 fw-bold" style="color: #FFC107;">💥 Promociones y Ofertas Especiales</h1>
+        <p class="text-muted fs-5">¡No te pierdas los mejores descuentos y beneficios en tus comidas favoritas!</p>
+    </div>
+
+    @if (LPromos != null && LPromos.Count > 0)
+    {
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            
+            @foreach (var promo in LPromos)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 promocion-card">
+                        
+                        <span class="badge position-absolute top-0 start-0 m-2 fw-bolder p-2" 
+                              style="background-color: #FF5722; color: white; font-size: 1.1rem; z-index: 10;">
+                            @promo.descuento% OFF
+                        </span>
+
+                        @if (!string.IsNullOrEmpty(promo.foto))
+                        {
+                            <img src="/imagenes/@promo.foto" class="card-img-top promo-img" alt="@promo.nombre" />
+                        }
+                        else
+                        {
+                            <div class="placeholder-img d-flex align-items-center justify-content-center" 
+                                 style="height: 200px; background-color: #ffe0b2;">
+                                <i class="fas fa-percent fa-3x" style="color: #FF9800;"></i>
+                            </div>
+                        }
+                        
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold" style="color: #333;">@promo.nombre</h5>
+                            
+                            <small class="text-success mt-auto">
+                                <i class="fas fa-calendar-alt"></i> Válido hasta: @promo.fechaFin.ToString("dd/MM/yyyy")
+                            </small>
+                            <small class="text-muted">
+                                Inicio: @promo.fechaIncio.ToString("dd/MM/yyyy")
+                            </small>
+                        </div>
+                        
+                        <div class="card-footer text-center border-0 bg-white">
+                            <a href='@Url.Action("Index", "Home")' class="btn btn-sm fw-bold w-100" 
+                               style="background-color: #4CAF50; color: white;">
+                                ¡Ver Oferta!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="text-center p-5 bg-light rounded-3 shadow-sm">
+            <i class="fas fa-tag fa-4x mb-3" style="color: #ccc;"></i>
+            <h4 class="mt-3 fw-bold">No hay promociones disponibles</h4>
+            <p class="text-muted">Vuelve pronto, siempre estamos agregando nuevas ofertas.</p>
+        </div>
+    }
+</div>

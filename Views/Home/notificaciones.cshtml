@@ -2,37 +2,50 @@
 @{
     ViewData["Title"] = "Mis Notificaciones";
     Layout = "_Layout";
-    
-    // Obtenemos la lista desde el ViewBag y la casteamos a la clase correcta
     var LNotis = ViewBag.NotificacionesUsuario as List<NotificacionesUsuario>;
 }
 
-<main class="notificaciones-main">
+<div class="container my-5">
     
-    <div class="notificaciones-header">
-        <h1 class="titulo-notificaciones">Tus Notificaciones</h1>
-        <p class="subtitulo-notificaciones">Mantente al día con tus pedidos, promociones y alertas.</p>
+    <div class="notificaciones-header text-center mb-5">
+        <h1 class="titulo-notificaciones display-5 fw-bold" style="color: #4CAF50;">Tus Notificaciones</h1>
+        <p class="subtitulo-notificaciones text-muted fs-5">Mantente al día con tus pedidos, promociones y alertas.</p>
     </div>
 
     @if (LNotis != null && LNotis.Count > 0)
     {
         <div class="lista-notificaciones">
+            
             @foreach (var noti in LNotis)
             {
-                <div class="card-notificacion">
-                    <div class="icono-noti">
-                        @* Icono basado en la categoría (opcional, se puede ajustar) *@
-                        <i class="fas fa-bell" style="color: #4CAF50;"></i>
-                    </div>
-                    <div class="contenido-noti">
-                        @* **USANDO: noti.categoria (como título)** *@
-                        <h5 class="titulo-noti">@noti.categoria</h5> 
-                        @* **USANDO: noti.mensaje** *@
-                        <p class="mensaje-noti">@noti.mensaje</p>
-                    </div>
-                    <div class="meta-noti">
-                        @* **USANDO: noti.fecha** *@
-                        <small class="fecha-noti">@noti.fecha.ToString("dd MMM yyyy HH:mm")</small>
+                <div class="card shadow-sm mb-3 border-start border-5 p-3" style="border-color: #4CAF50 !important;">
+                    <div class="d-flex align-items-center">
+                        
+                        <div class="icono-noti me-3">
+                            @{
+                                string icono = "fas fa-bell";
+                                string color = "#4CAF50"; // Verde SANNI
+                                if (noti.categoria.Contains("Promoción")) { icono = "fas fa-tags"; color = "#FFC107"; }
+                                else if (noti.categoria.Contains("Pedido")) { icono = "fas fa-truck"; color = "#007bff"; }
+                            }
+                            <i class="@icono fa-2x" style="color: @color;"></i>
+                        </div>
+                        
+                        <div class="contenido-noti flex-grow-1">
+                            <h6 class="titulo-noti fw-bold mb-1" style="color: #333;">
+                                @noti.categoria
+                            </h6> 
+                            <p class="mensaje-noti mb-0 text-dark">
+                                @noti.mensaje
+                            </p>
+                        </div>
+                        
+                        <div class="meta-noti text-end ms-3">
+                            <small class="fecha-noti text-muted">
+                                @noti.fecha.ToString("dd MMM, HH:mm")
+                            </small>
+                        </div>
+                        
                     </div>
                 </div>
             }
@@ -40,11 +53,11 @@
     }
     else
     {
-        <div class="mensaje-vacio">
-            <i class="far fa-bell" style="font-size: 3em; color: #ccc;"></i>
-            <h4 class="mt-3">¡Todo Despejado!</h4>
-            <p>No tienes notificaciones pendientes en este momento.</p>
+        <div class="mensaje-vacio text-center p-5 bg-light rounded-3 shadow-sm">
+            <i class="far fa-bell fa-4x mb-3" style="color: #ccc;"></i>
+            <h4 class="mt-3 fw-bold">¡Todo Despejado!</h4>
+            <p class="text-muted">No tienes notificaciones pendientes en este momento. ¡Te avisaremos cuando haya algo nuevo!</p>
         </div>
     }
 
-</main>
+</div>

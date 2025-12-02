@@ -1,58 +1,105 @@
+@* Views/Home/resultadosRestriccion.cshtml *@
 @{
     Layout = "_Layout";
+    
+    // Tipificación de ViewBags (Ajusta los nombres de las clases si es necesario)
+    var restriccion = ViewBag.Restriccion as dynamic; // Asumo dynamic si no hay un modelo 'Restriccion'
+    var platos = ViewBag.PlatosRestriccion as List<Plato>;
+    var bebidas = ViewBag.BebidasRestriccion as List<Bebida>;
+    
+    // Definimos el título
+    string tituloRestriccion = (restriccion != null && restriccion.nombre != null) 
+                                ? restriccion.nombre 
+                                : "Resultados de Búsqueda";
+
+    ViewData["Title"] = tituloRestriccion;
 }
 
-@* 1. Opcional: Mostrar el nombre de la Restricción seleccionada (si GetRestriccionBusqueda devuelve un objeto con la propiedad 'nombre') *@
-@if (ViewBag.Restriccion != null)
-{
-    <h2>@ViewBag.Restriccion.nombre</h2>
-    <hr />
-}
-else
-{
-    <h2>@ViewBag.Error</h2>
-}
+<div class="container my-5">
+    
+    <div class="header-restriccion text-center mb-5">
+        @if (restriccion != null && restriccion.nombre != null)
+        {
+            <h1 class="display-5 fw-bold" style="color: #4CAF50;">✅ @tituloRestriccion</h1>
+            <p class="text-muted fs-5">Platos y bebidas que se ajustan a esta restricción o dieta.</p>
+        }
+        else if (ViewBag.Error != null)
+        {
+            <h1 class="display-5 fw-bold text-danger">⚠️ Error en la Búsqueda</h1>
+            <p class="fs-5 text-muted">@ViewBag.Error</p>
+        }
+        else
+        {
+            <h1 class="display-5 fw-bold" style="color: #4CAF50;">Resultados de Búsqueda</h1>
+            <p class="text-muted fs-5">Explora las opciones compatibles.</p>
+        }
+        <hr class="mt-4 mb-5" />
+    </div>
 
 
-<h3>Platos Disponibles</h3>
-@if (ViewBag.PlatosRestriccion != null && ViewBag.PlatosRestriccion.Count > 0)
-{
-    @foreach (var p in ViewBag.PlatosRestriccion)
+    <h3 class="fw-bold mb-4" style="color: #4CAF50;"><i class="fas fa-utensils me-2"></i> Platos Compatibles</h3>
+    
+    @if (platos != null && platos.Count > 0)
     {
-        <div class="item-plato">
-            <a class="btn btn-primary" href='@Url.Action("verPlato", "Home", new {idPlato= p.idPlato})'>
-                @p.nombre
-            </a>
-            
-            <p><strong>Descripción:</strong> @p.descripcion</p>
-            <p><strong>Calorías:</strong> @p.calorias</p>
-            <p><strong>Precio:</strong> $@p.precio</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+            @foreach (var p in platos)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 item-card-sanni">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold" style="color: #4CAF50;">@p.nombre</h5>
+                            <p class="card-text text-muted mb-3">@p.descripcion</p>
+                            
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-success fw-bold text-white">@p.calorias Cals</span>
+                                <h5 class="fw-bolder mb-0">$@p.precio.ToString("N0")</h5>
+                            </div>
+                            
+                            <a href='@Url.Action("verPlato", "Home", new {idPlato= p.idPlato})' class="btn btn-sm btn-outline-success w-100">
+                                Ver Plato Completo <i class="fas fa-search ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
-        <br/>
     }
-}
-else
-{
-    <p>No se encontraron platos para esta restricción.</p>
-}
-
-<hr />
-
-<h3>Bebidas Disponibles</h3>
-@if (ViewBag.BebidasRestriccion != null && ViewBag.BebidasRestriccion.Count > 0)
-{
-    @foreach (var b in ViewBag.BebidasRestriccion)
+    else
     {
-        <div class="item-bebida">
-            @* Aquí puedes agregar un enlace si tienes una vista para verBebida *@
-            <h4>@b.nombre</h4> 
-            <p><strong>Descripción:</strong> @b.descripcion</p>
-            @* Las bebidas no tienen calorias ni precio en tu esquema de DB, solo las mostramos por nombre y descripción *@
+        <div class="alert alert-warning text-center">
+            No se encontraron platos principales que cumplan con esta restricción.
         </div>
-        <br/>
     }
-}
-else
-{
-    <p>No se encontraron bebidas para esta restricción.</p>
-}
+
+    <hr class="my-5" />
+
+    <h3 class="fw-bold mb-4" style="color: #4CAF50;"><i class="fas fa-wine-glass-alt me-2"></i> Bebidas Compatibles</h3>
+    
+    @if (bebidas != null && bebidas.Count > 0)
+    {
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
+            @foreach (var b in bebidas)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 item-card-sanni">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold" style="color: #4CAF50;">@b.nombre</h5>
+                            <p class="card-text text-muted">@b.descripcion</p>
+                            
+                            <a class="btn btn-sm btn-outline-success w-100 mt-3" href='@Url.Action("verBebida", "Home", new {idBebida= b.idBebida})'>
+                                Ver Detalle
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center">
+            No se encontraron bebidas que cumplan con esta restricción.
+        </div>
+    }
+
+</div>

@@ -17,12 +17,11 @@ public class AccountController : Controller
         return View("iniciarSesion");
     }
 
-    public IActionResult LoginGuardar(string email, string contraseña)
+    public IActionResult LoginGuardar(string email, string contrasena)
     {
-        Usuario usuarioLog= BD.Login(email,contraseña);
-        if(usuarioLog!=null){
-           int idUser=usuarioLog.idUsuario;
-           ViewBag.NombreUsuario=usuarioLog.nombre;
+        Usuario user= BD.Login(email,contrasena);
+        if(user!=null){
+           int idUser=user.idUsuario;
            HttpContext.Session.SetString("IdUsuario", idUser.ToString()); 
         }
         
@@ -35,11 +34,11 @@ public class AccountController : Controller
         return View("registro", "Account");
     }
 
-     public IActionResult RegistroGuardar(int idUsuario, string nombre, string apellido, string email, string contraseña, string direccion , int telefono)
+     public IActionResult RegistroGuardar(int idUsuario, string nombre, string apellido, string email, string contrasena, string direccion , int telefono)
     {
-        BD.Registro(nombre, apellido, email, contraseña, direccion, telefono);
+        BD.Registro(nombre, apellido, email, contrasena, direccion, telefono);
         Usuario userRegistrado = BD.GetUsuario(idUsuario);
-        HttpContext.Session.SetString("IdUsuario", idUsuario.ToString()); 
+        HttpContext.Session.SetString("idUsuario", idUsuario.ToString()); 
         return RedirectToAction("iniciarSesion", "Account");
     }
 
